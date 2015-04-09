@@ -1,0 +1,77 @@
+<head>
+  <title>Plant Monitor</title>
+</head>
+
+<body>
+    {{>menuRoute}}
+	<div class="container">
+
+		
+	</div>
+</body>
+
+
+
+
+<template name="gettingStarted">
+
+	<p>Thanks for Installing the PlantMonitor. With this you will be able to 
+		monitor a single plant, a full garden, or even multiple gardens.  Tracking
+		info of the plants and its surrounding environments will depend on the
+		capabilities of your equipment.
+		Please create a new Garden, Then we can start to add plants to your garden.
+	</p>
+	<button> Skip </button>
+	
+</template>
+
+<template name="homeRoute">
+
+
+	{{>gardens}}
+
+</template>
+
+<template name="gardens">
+	<h1>Add new Gardens</h1>
+	<form class="new-garden">
+		<input type="text" name="gardenNameForm" placeholder="Type to add new garden"/>
+		<input type="submit" value="Add Garden">
+	</form>
+	There have been <b>{{gardensCount}}</b> gardens created. <br>
+	
+	{{#each gardens}}
+		<button>{{gardenName}}</button>
+	{{/each}}
+
+	
+	
+</template>
+
+
+<template name="menuRoute">
+	<a href="{{ pathFor 'homeRoute' }}">PlantMonitor</a>
+	<a href="{{ pathFor 'settings' }}">Settings</a>
+
+</template>
+
+<template name="settings">
+	<h1>
+		Settings
+	</h1>
+	
+		<form>
+			<input type="text" name="settingName" placeholder="Type to add new Setting">
+			<input type="submit" value="Add Setting">
+		</form>
+
+	<ul>
+		{{#each setting}}
+			<li class="setting">{{name}} : {{value}} <input type="checkbox" checked="{{checked}}" class="toggle-checked"></li>
+		{{/each}}
+		<li>collectData</li>
+		<li>collectAirTemp</li>
+		<li>collectSoilTemp</li>
+		<li>collectWater</li>
+	</ul>
+</template>
