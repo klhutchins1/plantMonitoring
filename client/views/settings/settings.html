@@ -1,0 +1,61 @@
+<template name="settingsRoute">
+	<h1>
+		Settings
+	</h1>
+	
+		<form class="new-setting">
+			<input type="text" name="settingNameForm" placeholder="Type to add new Setting">
+			<input type="submit" value="Add Setting">
+			
+		</form>
+		<button type="button" class="editSettings" >Edit Settings</button>
+	<ul>
+		{{#each settings}}
+			<li class="settings">
+			{{#if settingTypeIs "checkbox"}}
+				{{>settingsCheckbox}} {{name}}
+			{{else}}
+				{{#if settingTypeIs "tzSelect"}}
+					{{name}} : {{>settingsTZDropdown}}
+				{{else}}
+					{{#if settingTypeIs "tempSelect"}}
+						{{name}} : {{>settingsTempUnitsDropdown}}
+					{{else}}
+						{{#if settingTypeIs "Form"}}
+							{{name}} : {{>settingsForm}}
+						{{/if}}
+					{{/if}}
+				{{/if}}
+			{{/if}}
+			</li>
+		{{/each}}
+	</ul>
+	
+	<button type="button" class="DeploySettings">Deploy Initial settings</button>
+</template>
+
+<template name="settingsCheckbox">
+	<input type="{{inputType}}" checked="{{isChecked}}" class="toggle-checked" value="{{_id}}" name="{{name}}" />
+</template>
+
+<template name="settingsTZDropdown">
+	<select class="timeZone">
+	  <option value="PST">Pacific</option>
+	  <option value="MST">Mountain</option>
+	  <option value="CST">Central</option>
+	  <option value="EST">Eastern</option>
+	</select>
+</template>
+
+<template name="settingsTempUnitsDropdown">
+	<select>
+	  <option value="Fahrenheit">Fahrenheit</option>
+	  <option value="Celsius">Celsius</option>
+	</select>
+</template>
+
+
+
+<template name="settingsForm">
+
+</template>
