@@ -39,18 +39,20 @@
 </template>
 
 <template name="settingsTZDropdown">
-	<select class="timeZone">
-	  <option value="PST">Pacific</option>
-	  <option value="MST">Mountain</option>
-	  <option value="CST">Central</option>
-	  <option value="EST">Eastern</option>
+	<select class="timeZone" id="timeZone" name="timeZoneName">
+	{{#each timeZ}}
+		<option value="{{label}}">{{value}}</option>
+	{{/each}}
 	</select>
 </template>
 
+
+
 <template name="settingsTempUnitsDropdown">
-	<select>
-	  <option value="Fahrenheit">Fahrenheit</option>
-	  <option value="Celsius">Celsius</option>
+	<select class="tempUnits" id="tempUnits" name="tempUnitsName">
+	{{#each unitsForTemp}}
+		<option value="{{label}}">{{value}}</option>
+	{{/each}}
 	</select>
 </template>
 

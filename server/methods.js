@@ -21,13 +21,14 @@ Meteor.methods({
 	},
 	
 	modifySettings: function(selectedSetting, settingValue){
-		console.log("NOTHING");
+		console.log("deploying init settings");
 		Meteor.call('gettingStartedDeploySettings');
 		
 	},
 	
-	saveDropDown: function(settingId ){
-		SettingsList.update(settingId)
+	saveDropDown: function(settingId, dropdownValue){
+		//console.log(dropdownValue);
+		//SettingsList.update(settingId, {$update: {timeZ: {isSelected: true }}} );
 	},
 
 	toggleChecked: function (settingId, setChecked) {
@@ -94,14 +95,21 @@ Meteor.methods({
 		{
 			name: "Temperature Units", 
 			inputType: "tempSelect",
-			unitsForTemp: "Fahrenheit"
+			unitsForTemp: [
+				{label: "Fahrenheit", value: "Fahrenheit", isSelected: true},
+				{label: "Celsius", value: "Celsius", isSelected: false}
+			]
 
 		},
 		{
 			name: "Time Zone", 
 			inputType: "tzSelect",
-			timeZ: "Mountain"
-			//option: {"PST","MST","CST","EST"}
+			timeZ:  [
+				{label: "Pacific", value: "Pacific", isSelected: false},
+				{label: "Mountain", value: "Mountain", isSelected: true},
+				{label: "Central", value: "Central", isSelected: false},
+				{label: "Eastern", value: "Eastern", isSelected: false}
+			]
 
 		},
 		{

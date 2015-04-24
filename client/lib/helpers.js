@@ -32,7 +32,9 @@ Template.settingsRoute.events({
 		
 	},
 	"click .timeZone": function(){
-		Meteor.call("saveDropDown", this._id);
+		//var tz = this.value;
+		//console.log(tz);
+		//Meteor.call("saveDropDown", this._id);
 	},
 	"submit .new-setting": function () {
 		var settingName = event.target.settingNameForm.value;
