@@ -6,6 +6,13 @@ Meteor.methods({
 		});
 	},
 	
+	addPlant: function (plantName) {
+		PlantsList.insert({
+			plantName: plantName,
+			createdAt: new Date()
+		});
+	},
+	
 	createSettings: function(settingNameVar){
 		//ensure setting name has value, serverSide check
 		if(settingNameVar == ""){
@@ -20,20 +27,22 @@ Meteor.methods({
 
 	},
 	
-	modifySettings: function(selectedSetting, settingValue){
-		console.log("deploying init settings");
-		Meteor.call('gettingStartedDeploySettings');
+	//modifySettings: function(selectedSetting, settingValue){
+	//	console.log("deploying init settings");
+	//	Meteor.call('gettingStartedDeploySettings');
 		
+	//},
+	
+	setTZ: function(settingId, isSelected){
+
+		//SettingsList.update(settingId, {$set: {timeZ: {isSelected: true }}} );
 	},
 	
-	saveDropDown: function(settingId, dropdownValue){
-		//console.log(dropdownValue);
-		//SettingsList.update(settingId, {$update: {timeZ: {isSelected: true }}} );
-	},
 
 	toggleChecked: function (settingId, setChecked) {
 		SettingsList.update(settingId, {$set:  {isChecked: setChecked}} );
 	},
+
 	
 	gettingStarted: function(){
 		if (SettingsList.find().count() == 0){

@@ -41,7 +41,7 @@
 <template name="settingsTZDropdown">
 	<select class="timeZone" id="timeZone" name="timeZoneName">
 	{{#each timeZ}}
-		<option value="{{label}}">{{value}}</option>
+		<option value="{{label}}" selected="{{isSelected}}">{{value}}</option>
 	{{/each}}
 	</select>
 </template>
@@ -51,7 +51,7 @@
 <template name="settingsTempUnitsDropdown">
 	<select class="tempUnits" id="tempUnits" name="tempUnitsName">
 	{{#each unitsForTemp}}
-		<option value="{{label}}">{{value}}</option>
+		<option value="{{label}}" selected="{{isSelected}}">{{value}}</option>
 	{{/each}}
 	</select>
 </template>

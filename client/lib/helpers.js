@@ -16,12 +16,34 @@ Template.createGardens.events({
 	} 
 });
 
+
+Template.createPlants.helpers({
+	plants: function() {
+		return PlantsList.find();
+	},
+	plantsCount: function () {
+		return PlantsList.find().count();
+	}
+	
+});
+
+Template.createPlants.events({
+	"submit .new-plant": function(event){
+		var plantName = event.target.plantNameForm.value;
+		Meteor.call('addPlant', plantName);
+		return false;
+	}
+});
+
 Template.settingsRoute.helpers({
 	settings: function(){
 		return SettingsList.find();
 	},
 	settingTypeIs: function(inputType){
 		return this.inputType === inputType;
+	},
+	timeZ: function(isSelected){
+		return isSelected === this.isSelected;
 	}
 
 });
@@ -32,9 +54,8 @@ Template.settingsRoute.events({
 		
 	},
 	"click .timeZone": function(){
-		//var tz = this.value;
-		//console.log(tz);
-		//Meteor.call("saveDropDown", this._id);
+		console.log(this.timeZ.label);
+		//Meteor.call("setTZ", this._id, this.isChecked, this.value);
 	},
 	"submit .new-setting": function () {
 		var settingName = event.target.settingNameForm.value;

@@ -1,0 +1,21 @@
+<template name="gardensRoute">
+{{>createGardens}}
+
+</template>
+
+<template name="createGardens">
+	<h1>Create a new Garden</h1>
+	<form class="new-garden">
+		<input type="text" name="gardenNameForm" placeholder="Type to add new garden"/>
+		<input type="submit" value="Add Garden">
+	</form>
+	There have been <b>{{gardensCount}}</b> gardens created. <br>
+
+	{{#each gardens}}
+		<button>{{gardenName}}</button>
+	{{/each}}
+
+
+
+</template>
+
