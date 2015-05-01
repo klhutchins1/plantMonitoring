@@ -16,7 +16,7 @@
 				{{>settingsCheckbox}} {{name}}
 			{{else}}
 				{{#if settingTypeIs "tzSelect"}}
-					{{name}} : {{>settingsTZDropdown}}
+					{{name}} : {{> timezonePicker class="form-group" selected=timezone}}
 				{{else}}
 					{{#if settingTypeIs "tempSelect"}}
 						{{name}} : {{>settingsTempUnitsDropdown}}
@@ -38,21 +38,12 @@
 	<input type="{{inputType}}" checked="{{isChecked}}" class="toggle-checked" value="{{_id}}" name="{{name}}" />
 </template>
 
-<template name="settingsTZDropdown">
-	<select class="timeZone" id="timeZone" name="timeZoneName">
-	{{#each timeZ}}
-		<option value="{{label}}" selected="{{isSelected}}">{{value}}</option>
-	{{/each}}
-	</select>
-</template>
-
-
 
 <template name="settingsTempUnitsDropdown">
-	<select class="tempUnits" id="tempUnits" name="tempUnitsName">
-	{{#each unitsForTemp}}
-		<option value="{{label}}" selected="{{isSelected}}">{{value}}</option>
-	{{/each}}
+
+	<select class="tempurature" id="tempSelect" name="tempName">
+		<option value="Fahrenheit" selected="{{unitsForTemp}}">Fahrenheit</option>
+		<option value="Celsius" selected="{{unitsForTemp}}">Celsius</option>
 	</select>
 </template>
 

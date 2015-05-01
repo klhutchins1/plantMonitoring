@@ -41,9 +41,25 @@
 
 
 <template name="menuRoute">
-	<a href="{{ pathFor 'homeRoute' }}">PlantMonitor</a>
-	<a href="{{ pathFor 'gardensRoute' }}">Gardens</a>
-	<a href="{{ pathFor 'plantsRoute' }}">Plants</a>
-	<a href="{{ pathFor 'settingsRoute' }}">Settings</a>
+	<nav class="navbar navbar-default navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
 
+				<a class="navbar-brand" href="{{ pathFor 'homeRoute' }}">PlantMonitoring</a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<a href="{{ pathFor 'gardensRoute' }}">Gardens</a>
+					</li>
+					<li>
+						<a href="{{ pathFor 'plantsRoute' }}">Plants</a>
+					</li>
+					<li>
+						<a href="{{ pathFor 'settingsRoute' }}">Settings</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 </template>

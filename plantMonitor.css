@@ -1,3 +1,9 @@
 /* CSS declarations go here */
 
 
+.navbar-brand,
+.navbar-nav li a {
+    line-height: 25px;
+    height: 25px;
+   
+}

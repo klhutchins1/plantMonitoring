@@ -1,40 +1,3 @@
-Template.createGardens.helpers({
-	gardens: function () {
-		return GardensList.find();
-	},
-	gardensCount: function () {
-		return GardensList.find().count();
-	}
-});
-
-Template.createGardens.events({
-	"submit .new-garden": function(event){
-		var gardenName = event.target.gardenNameForm.value;
-		//console.log(gardenName);
-		Meteor.call('addGarden', gardenName);
-		return false;
-	} 
-});
-
-
-Template.createPlants.helpers({
-	plants: function() {
-		return PlantsList.find();
-	},
-	plantsCount: function () {
-		return PlantsList.find().count();
-	}
-	
-});
-
-Template.createPlants.events({
-	"submit .new-plant": function(event){
-		var plantName = event.target.plantNameForm.value;
-		Meteor.call('addPlant', plantName);
-		return false;
-	}
-});
-
 Template.settingsRoute.helpers({
 	settings: function(){
 		return SettingsList.find();
@@ -43,8 +6,11 @@ Template.settingsRoute.helpers({
 		return this.inputType === inputType;
 	},
 	timeZ: function(isSelected){
-		return isSelected === this.isSelected;
-	}
+		return this.isSelected ===  isSelected;
+	},
+	tempSelect: function(unitsForTemp){
+		return this.unitsForTemp ===  unitsForTemp;
+	},
 
 });
 
@@ -53,8 +19,17 @@ Template.settingsRoute.events({
 		Meteor.call("toggleChecked", this._id, ! this.isChecked );
 		
 	},
+	"click .tempurature": function(){
+		var unitsTemp = $('#tempSelect').val();
+		
+		console.log(unitsTemp);
+		Meteor.call('setTempUnit', this._id, unitsTemp);
+	},
 	"click .timeZone": function(){
-		console.log(this.timeZ.label);
+		
+		//console.log(this.timeZ.label);
+		//Meteor.call('testinsert', this._id);
+		//need to get inner value of timeZ if it's true or false
 		//Meteor.call("setTZ", this._id, this.isChecked, this.value);
 	},
 	"submit .new-setting": function () {
