@@ -1,6 +1,5 @@
-<template name="gardensRoute">
-{{>createGardens}}
-
+<template name="gardensTemplate">
+    {{>createGardens}}
 </template>
 
 <template name="createGardens">
@@ -12,10 +11,11 @@
 	There have been <b>{{gardensCount}}</b> gardens created. <br>
 
 	{{#each gardens}}
-		<button>{{gardenName}}</button>
+        <a href="{{pathFor 'gardenDetails.show' }} ">{{gardenName}}</a>
 	{{/each}}
-
-
-
 </template>
 
+<template name="gardenDetailsTemplate">
+    <h1> {{gardenName}}</h1>
+    {{createdAt}}
+</template>

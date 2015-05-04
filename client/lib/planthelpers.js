@@ -5,7 +5,6 @@ Template.createPlants.helpers({
 	plantsCount: function () {
 		return PlantsList.find().count();
 	}
-	
 });
 
 Template.createPlants.events({

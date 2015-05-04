@@ -1,10 +1,8 @@
-<template name="plantsRoute">
+<template name="plantsTemplate">
 	{{>createPlants}}
 </template>
 
-
 <template name="createPlants">
-
 	<h1>Create a new plant</h1>
 	<form class="new-plant">
 		<input type="text" name="plantNameForm" placeholder="Type to add new plant"/>
@@ -13,10 +11,30 @@
 	There have been <b>{{plantsCount}}</b> plants created. <br>
 
 	{{#each plants}}
-		<button>{{plantName}}</button>
+        <a href="{{pathFor 'plantDetails.show' }} ">{{plantName}}</a>
 	{{/each}}
 </template>
 
-<template name="addPlantToGarden">
+<template name="plantDetailsTemplate">
+    <h1> {{plantName}}</h1>
+    {{createdAt}}
+    <a href="{{pathFor 'editplantDetails.show' }} ">Edit Plant?</a>
+</template>
+
+
+<template name="editPlantDetailsTemplate">
+    <ul>
+        <li>Name:
+            <form class="edit-plantName">
+                <input type="text" name="editPlantNameForm" placeholder="{{plantName}}"/>
+                <input type="submit" value="Edit Name">
+            </form>
+        </li>
+        <li>
+
+        </li>
+    </ul>
+
+
 
 </template>

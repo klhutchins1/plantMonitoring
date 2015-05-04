@@ -3,7 +3,7 @@
 </head>
 
 <body>
-    {{>menuRoute}}
+    {{>menuTemplate}}
 	<div class="container">
 
 
@@ -15,7 +15,7 @@
 
 
 
-<template name="gettingStarted">
+<template name="gettingStartedTemplate">
 	<div class="gettingStartedDiv">
 		<p>Thanks for Installing the PlantMonitor. With this you will be able to
 			monitor a single plant, a full garden, or even multiple gardens.  Tracking
@@ -27,10 +27,10 @@
 	</div>
 </template>
 
-<template name="homeRoute">
+<template name="homeTemplate">
 
 
-	
+
 
 
 </template>
@@ -40,23 +40,23 @@
 
 
 
-<template name="menuRoute">
+<template name="menuTemplate">
 	<nav class="navbar navbar-default navbar-static-top">
 		<div class="container-fluid">
 			<div class="navbar-header">
 
-				<a class="navbar-brand" href="{{ pathFor 'homeRoute' }}">PlantMonitoring</a>
+				<a class="navbar-brand" href="{{ pathFor 'home.show' }}">PlantMonitoring</a>
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav navbar-right">
 					<li>
-						<a href="{{ pathFor 'gardensRoute' }}">Gardens</a>
+						<a href="{{ pathFor 'gardens.show' }}">Gardens</a>
 					</li>
 					<li>
-						<a href="{{ pathFor 'plantsRoute' }}">Plants</a>
+						<a href="{{ pathFor 'plants.show' }}">Plants</a>
 					</li>
 					<li>
-						<a href="{{ pathFor 'settingsRoute' }}">Settings</a>
+						<a href="{{ pathFor 'settings.show' }}">Settings</a>
 					</li>
 				</ul>
 			</div>
