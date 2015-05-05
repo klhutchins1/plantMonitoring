@@ -10,7 +10,11 @@ Template.createPlants.helpers({
 Template.createPlants.events({
 	"submit .new-plant": function(event){
 		var plantName = event.target.plantNameForm.value;
-		Meteor.call('addPlant', plantName);
+    var length = event.target.lengthForm.value;
+    var width = event.target.widthForm.value;
+    var monitored = event.target.monitoredCheckbox.value;
+    var automated = event.target.automatedCheckbox.value;
+		Meteor.call('addPlant', plantName, length, width, monitored, automated);
 		return false;
 	}
 });

@@ -28,25 +28,37 @@ Router.route('/plants', function () {
   name: 'plants.show'
 });
 
+
+//gardens routers
 Router.route('/gardens/:gardenName', function () {
   this.render('gardenDetailsTemplate');
 }, {
   name: 'gardenDetails.show',
   data: function(){
     var gardensLinkVar = this.params.gardenName;
-    //console.log(gardensLinkVar);
+    return  GardensList.findOne({gardenName: gardensLinkVar});
+  }
+});
+
+Router.route('/garden/:gardenName/edit', function () {
+  this.render('editGardenDetailsTemplate');
+}, {
+  name: 'editGardenDetails.show',
+  data: function(){
+    var gardensLinkVar = this.params.gardenName;
     return  GardensList.findOne({gardenName: gardensLinkVar});
   }
 });
 
 
+
+//plants routers
 Router.route('/plants/:plantName', function () {
   this.render('plantDetailsTemplate');
 }, {
   name: 'plantDetails.show',
   data: function(){
     var plantsLinkVar = this.params.plantName;
-    //console.log(plantsLinkVar);
     return  PlantsList.findOne({plantName: plantsLinkVar});
   }
 });
@@ -54,17 +66,13 @@ Router.route('/plants/:plantName', function () {
 Router.route('/plants/:plantName/edit', function () {
   this.render('editPlantDetailsTemplate');
 }, {
-  name: 'editplantDetails.show',
+  name: 'editPlantDetails.show',
   data: function(){
     var plantsLinkVar = this.params.plantName;
-    //console.log(plantsLinkVar);
     return  PlantsList.findOne({plantName: plantsLinkVar});
   }
 });
 
-PlantsList = new Mongo.Collection("plants");
-GardensList = new Mongo.Collection("gardens");
-SettingsList = new Mongo.Collection("settings");
 
 
 

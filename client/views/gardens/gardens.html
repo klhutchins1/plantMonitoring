@@ -3,19 +3,112 @@
 </template>
 
 <template name="createGardens">
-	<h1>Create a new Garden</h1>
-	<form class="new-garden">
-		<input type="text" name="gardenNameForm" placeholder="Type to add new garden"/>
-		<input type="submit" value="Add Garden">
-	</form>
-	There have been <b>{{gardensCount}}</b> gardens created. <br>
 
+    There have been <b>{{gardensCount}}</b> gardens created. <br>
 	{{#each gardens}}
-        <a href="{{pathFor 'gardenDetails.show' }} ">{{gardenName}}</a>
+        <div>
+            <a href="{{pathFor 'gardenDetails.show' }} ">{{gardenName}}</a>
+        </div>
 	{{/each}}
+
+	<h2>Create a new Garden</h2>
+	<form class="new-garden">
+        <div class="control-group">
+            <div class="controls">
+                <label class="control-label"> Garden Name: </label>
+                <input type="text" maxlength="25" name="gardenNameForm" placeholder="Name of new garden" required/>
+                <p class="help-block"></p>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <label class="control-label">Length: </label>
+                <input type="text" maxlength="2" name="lengthForm" placeholder="In Feet" required/>
+                <p class="help-block"></p>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <label class="control-label">Width: </label>
+                <input type="text" maxlength="25" name="widthForm" placeholder="In Feet" required/>
+                <p class="help-block"></p>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <label class="control-label">Is monitored: </label>
+                <input type="checkbox" checked="true" class="toggle-checked" name="monitoredCheckbox"/>
+                <p class="help-block"></p>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <label class="control-label">Is Automated: </label>
+                <input type="checkbox" class="toggle-checked" name="automatedCheckbox"/>
+                <p class="help-block"></p>
+            </div>
+        </div>
+
+        <p>
+            <input type="submit" value="Add Garden">
+        </p>
+	</form>
+
 </template>
 
 <template name="gardenDetailsTemplate">
-    <h1> {{gardenName}}</h1>
-    {{createdAt}}
+    <h2>{{gardenName}} </h2>
+    <p>{{createdAt}} </p>
+    <a href="{{pathFor 'editGardenDetails.show' }} ">Edit garden?</a>
+</template>
+
+
+<template name="editGardenDetailsTemplate">
+
+    <h2>{{gardenName}} </h2>
+    <p>{{createdAt}} </p>
+    <p>{{editedAt}} </p>
+
+	<form class="edit-GardenName">
+        <div class="control-group">
+            <div class="controls">
+                <label class="control-label">Garden Name: </label>
+                <input type="text" maxlength="25" name="editGardenNameForm" placeholder="{{gardenName}}" required/>
+                <p class="help-block"></p>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <label class="control-label">Length: </label>
+                <input type="text" maxlength="2" name="lengthForm" placeholder="{{gardenLength}}" required/>
+                <p class="help-block"></p>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <label class="control-label">Width: </label>
+                <input type="text" maxlength="25" name="widthForm" placeholder="{{gardenWidth}}" required/>
+                <p class="help-block"></p>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <label class="control-label">Is monitored: </label>
+                <input type="checkbox" checked="true" class="toggle-checked" name="monitoredCheckbox"/>
+                <p class="help-block"></p>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <label class="control-label"> Is Automated: </label>
+                <input type="checkbox" class="toggle-checked" name="automatedCheckbox"/>
+                <p class="help-block"></p>
+            </div>
+        </div>
+
+        <p>
+            <input type="submit" value="Save Garden">
+        </p>
+	</form>
+
 </template>
