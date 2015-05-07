@@ -11,48 +11,54 @@
         </div>
 	{{/each}}
 
-	<h2>Create a new Garden</h2>
-	<form class="new-garden">
-        <div class="control-group">
-            <div class="controls">
-                <label class="control-label"> Garden Name: </label>
-                <input type="text" maxlength="25" name="gardenNameForm" placeholder="Name of new garden" required/>
+    <div class="createEditForm">
+        <h2 class="createH2">Create a new Garden</h2>
+        <form class="form-horizontal" id="new-garden">
+            <div class="form-group">
+                <label for="gardenNameInput" class="col-sm-2 control-label">Garden Name: </label>
+                <div class="col-sm-10">
+                    <input type="text"  class="form-control" id="gardenNameInput" maxlength="25" name="gardenNameForm" placeholder="Name of new garden" required/>
+                </div>
                 <p class="help-block"></p>
             </div>
-        </div>
-        <div class="control-group">
-            <div class="controls">
-                <label class="control-label">Length: </label>
-                <input type="text" maxlength="2" name="lengthForm" placeholder="In Feet" required/>
+            <div class="form-group">
+                <label for="gardenLengthInput" class="col-sm-2 control-label">Length: </label>
+                <input type="text" class="form-control" id="gardenLengthInput" maxlength="2" name="lengthForm" placeholder="In Feet" required/>
                 <p class="help-block"></p>
             </div>
-        </div>
-        <div class="control-group">
-            <div class="controls">
-                <label class="control-label">Width: </label>
-                <input type="text" maxlength="25" name="widthForm" placeholder="In Feet" required/>
-                <p class="help-block"></p>
-            </div>
-        </div>
-        <div class="control-group">
-            <div class="controls">
-                <label class="control-label">Is monitored: </label>
-                <input type="checkbox" checked="true" class="toggle-checked" name="monitoredCheckbox"/>
-                <p class="help-block"></p>
-            </div>
-        </div>
-        <div class="control-group">
-            <div class="controls">
-                <label class="control-label">Is Automated: </label>
-                <input type="checkbox" class="toggle-checked" name="automatedCheckbox"/>
-                <p class="help-block"></p>
-            </div>
-        </div>
 
-        <p>
-            <input type="submit" value="Add Garden">
-        </p>
-	</form>
+            <div class="form-group">
+                <label for="gardenWidthInput" class="col-sm-2 control-label">Width: </label>
+                <input type="text" class="form-control" id="gardenWidthInput" maxlength="25" name="widthForm" placeholder="In Feet" required/>
+                <p class="help-block"></p>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" class="toggle-checked" name="monitoredCheckbox"> Is monitored
+                        </label>
+                        <p class="help-block"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" class="toggle-checked" name="automatedCheckbox"> Is Automated
+                        </label>
+                        <p class="help-block"></p>
+                    </div>
+                </div>
+            </div>
+
+            <p>
+                <input type="submit" value="Add Garden">
+            </p>
+        </form>
+    </div>
 
 </template>
 

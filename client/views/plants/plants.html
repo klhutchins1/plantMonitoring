@@ -11,98 +11,100 @@
         </div>
 	{{/each}}
 
-	<h2>Create a new plant</h2>
-    	<form class="new-plant">
-        <div class="control-group">
-            <div class="controls">
-                <label class="control-label">Plant Name: </label>
-                <input type="text" maxlength="25" name="plantNameForm" placeholder="Name of new Plant" required/>
+    <div class="createEditForm">
+        <h2 class="createH2">Create a new plant</h2>
+        <form class="form-horizontal" id="new-plant">
+            <div class="form-group">
+                <label for="plantNameForm" class="col-sm-3 control-label">Plant Name: </label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" maxlength="25" id="plantNameForm" name="plantNameForm" placeholder="Name of new Plant" required/>
+                </div>
                 <p class="help-block"></p>
             </div>
-        </div>
-        <div class="control-group">
-            <div class="controls">
-                <label class="control-label">In which Garden: </label>
-                <input type="text" maxlength="2" name="memberOfGardenForm" />
+            <div class="form-group">
+                <label for="memberOfGardenForm" class="col-sm-2 control-label">In which Garden: </label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" maxlength="2" id="memberOfGardenForm" name="memberOfGardenForm" />
+                </div>
                 <p class="help-block"></p>
             </div>
-        </div>
-        <div class="control-group">
-            <div class="controls">
-                <label class="control-label">Length: </label>
-                <input type="text" maxlength="2" name="lengthForm" placeholder="In Feet" required/>
+            <div class="form-group">
+                <label for="lengthForm" class="col-sm-2 control-label">Length: </label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" maxlength="2" id="lengthForm" name="lengthForm" placeholder="In Feet" required/>
+                </div>
                 <p class="help-block"></p>
             </div>
-        </div>
-        <div class="control-group">
-            <div class="controls">
-                <label class="control-label">Width: </label>
-                <input type="text" maxlength="2" name="widthForm" placeholder="In Feet" required/>
+            <div class="form-group">
+                <label for="widthForm" class="col-sm-2 control-label">Width: </label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" maxlength="2" id="widthForm" name="widthForm" placeholder="In Feet" required/>
+                </div>
                 <p class="help-block"></p>
             </div>
-        </div>
-        <div class="control-group">
-            <div class="controls">
-                <label class="control-label">Is monitored: </label>
-                <input type="checkbox" checked="true" class="toggle-checked" name="monitoredCheckbox"/>
+            <div class="form-group">
+                <label for="monitoredCheckbox" class="col-sm-2 control-label">Is monitored: </label>
+                <div class="col-sm-10">
+                    <input type="checkbox" checked="true" class="toggle-checked" id="monitoredCheckbox" name="monitoredCheckbox"/>
+                </div>
                 <p class="help-block"></p>
             </div>
-        </div>
-        <div class="control-group">
-            <div class="controls">
-                <label class="control-label">Is Automated: </label>
-                <input type="checkbox" class="toggle-checked" name="automatedCheckbox"/>
+            <div class="form-group">
+                <label for="automatedCheckbox" class="col-sm-2 control-label">Is Automated: </label>
+                <div class="col-sm-10">
+                    <input type="checkbox" class="toggle-checked" id="automatedCheckbox" name="automatedCheckbox"/>
+                </div>
                 <p class="help-block"></p>
             </div>
-        </div>
-        <div class="control-group">
-            <div class="controls">
-                <label class="control-label">Optimal Amout of Water: </label>
-                <input type="text" maxlength="2" name="waterForm" placeholder="In ounces per Day"/>
+            <div class="form-group">
+                <label for="waterForm" class="col-sm-2 control-label">Optimal Amout of Water: </label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" maxlength="2" id="waterForm" name="waterForm" placeholder="In ounces per Day"/>
+                </div>
                 <p class="help-block"></p>
             </div>
-        </div>
-        <div class="control-group">
-            <div class="controls">
-                <label class="control-label">Optimal Air Temperature: </label>
-                <input type="text" maxlength="2" name="airTempForm" placeholder="In degrees"/>
+            <div class="form-group">
+                <label for="airTempForm" class="col-sm-2 control-label">Optimal Air Temperature: </label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" maxlength="2" id="airTempForm" name="airTempForm" placeholder="In degrees"/>
+                </div>
                 <p class="help-block"></p>
             </div>
-        </div>
-        <div class="control-group">
-            <div class="controls">
-                <label class="control-label">Optimal Soil Temperature: </label>
-                <input type="text" maxlength="2" name="soilTempForm" placeholder="In degrees"/>
+            <div class="form-group">
+                <label for="soilTempForm" class="col-sm-2 control-label">Optimal Soil Temperature: </label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" maxlength="2" id="soilTempForm" name="soilTempForm" placeholder="In degrees"/>
+                </div>
                 <p class="help-block"></p>
             </div>
-        </div>
-        <div class="control-group">
-            <div class="controls">
-                <label class="control-label">Optimal Amout of Light: </label>
-                <input type="text" maxlength="2" name="lightForm" placeholder="In Lumens per Day"/>
+            <div class="form-group">
+                <label for="lightForm" class="col-sm-2 control-label">Optimal Amout of Light: </label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" maxlength="2" id="lightForm" name="lightForm" placeholder="In Lumens per Day"/>
+                </div>
                 <p class="help-block"></p>
             </div>
-        </div>
-        <div class="control-group">
-            <div class="controls">
-                <label class="control-label">Optimal Amout of Humidity: </label>
-                <input type="text" maxlength="2" name="humidityForm" placeholder="In percent"/>
+            <div class="form-group">
+                <label for="humidityForm" class="col-sm-2 control-label">Optimal Amout of Humidity: </label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" maxlength="2" id="humidityForm" name="humidityForm" placeholder="In percent"/>
+                </div>
                 <p class="help-block"></p>
             </div>
-        </div>
-        <div class="control-group">
-            <div class="controls">
-                <label class="control-label">Optimal Amout of Wind: </label>
-                <input type="text" maxlength="2" name="windForm" placeholder="In miles per hour"/>
+            <div class="form-group">
+                <label for="windForm" class="col-sm-2 control-label">Optimal Amout of Wind: </label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" maxlength="2" id="windForm" name="windForm" placeholder="In miles per hour"/>
+                </div>
                 <p class="help-block"></p>
             </div>
-        </div>
-        <p>
-            <input type="submit" value="Add Plant">
-        </p>
+            <p>
+                <input type="submit" value="Add Plant">
+            </p>
 
-    </form>
+        </form>
 
+    </div>
 
 
 </template>

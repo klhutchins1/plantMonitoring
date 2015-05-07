@@ -8,7 +8,7 @@ Template.createGardens.helpers({
 });
 
 Template.createGardens.events({
-	"submit .new-garden": function(event){
+	"submit #new-garden": function(event){
 		var gardenName = event.target.gardenNameForm.value;
     var length = event.target.lengthForm.value;
     var width = event.target.widthForm.value;

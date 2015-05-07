@@ -8,7 +8,7 @@ Template.createPlants.helpers({
 });
 
 Template.createPlants.events({
-	"submit .new-plant": function(event){
+	"submit #new-plant": function(event){
 		var plantName = event.target.plantNameForm.value;
     var length = event.target.lengthForm.value;
     var width = event.target.widthForm.value;
