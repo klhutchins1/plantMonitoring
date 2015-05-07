@@ -1,6 +1,7 @@
 Meteor.methods({
-	addPlant: function (plantName, length, width, monitored, automated) {
-    //check for valid info using reactiveraven.github.io/jqBootstrapValidation/ for htmp
+	addPlant: function (plantName, length, width, monitored, automated,  airTemp, soilTemp, light, humidity, wind) {
+    //check for valid info using reactiveraven.github.io/jqBootstrapValidation/
+    //still needs serverside validation
 
 
 		PlantsList.insert({
@@ -10,7 +11,12 @@ Meteor.methods({
       plantLength: length,
       plantWidth: width,
       isMonitored: monitored,
-      isAutomatied: automated
+      isAutomatied: automated,
+      airTemp: airTemp,
+      soilTemp: soilTemp,
+      light: light,
+      humidity: humidity,
+      wind: wind
 
 		});
 	}

@@ -14,7 +14,17 @@ Template.createPlants.events({
     var width = event.target.widthForm.value;
     var monitored = event.target.monitoredCheckbox.value;
     var automated = event.target.automatedCheckbox.value;
-		Meteor.call('addPlant', plantName, length, width, monitored, automated);
+    var water = event.target.waterForm.value;
+    var airTemp = event.target.airTempForm.value;
+    var soilTemp = event.target.soilTempForm.value;
+    var light = event.target.lightForm.value;
+    var humidity = event.target.humidityForm.value;
+    var wind = event.target.windForm.value;
+
+
+
+		Meteor.call('addPlant', plantName, length, width, monitored,
+                automated, airTemp, soilTemp, light, humidity, wind);
 		return false;
 	}
 });

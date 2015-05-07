@@ -1,7 +1,7 @@
 Meteor.methods({
 	addGarden: function (gardenName, length, width, monitored, automated) {
 		//check for valid info using reactiveraven.github.io/jqBootstrapValidation/ for htmp
-
+    //still needs serverside validation
 
     GardensList.insert({
 			gardenName: gardenName,

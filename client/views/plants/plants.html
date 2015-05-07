@@ -6,8 +6,8 @@
 
     There have been <b>{{plantsCount}}</b> plants created. <br>
 	{{#each plants}}
-        <div>
-            <a href="{{pathFor 'plantDetails.show' }} ">{{plantName}}</a>
+        <div class="plantsListArea">
+            <a class="plantLink" href="{{pathFor 'plantDetails.show' }} ">{{plantName}}</a>
         </div>
 	{{/each}}
 
@@ -22,6 +22,13 @@
         </div>
         <div class="control-group">
             <div class="controls">
+                <label class="control-label">In which Garden: </label>
+                <input type="text" maxlength="2" name="memberOfGardenForm" />
+                <p class="help-block"></p>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
                 <label class="control-label">Length: </label>
                 <input type="text" maxlength="2" name="lengthForm" placeholder="In Feet" required/>
                 <p class="help-block"></p>
@@ -29,8 +36,8 @@
         </div>
         <div class="control-group">
             <div class="controls">
-                <label class="control-label">h2: </label>
-                <input type="text" maxlength="2" name="h2Form" placeholder="In Feet" required/>
+                <label class="control-label">Width: </label>
+                <input type="text" maxlength="2" name="widthForm" placeholder="In Feet" required/>
                 <p class="help-block"></p>
             </div>
         </div>
@@ -48,12 +55,54 @@
                 <p class="help-block"></p>
             </div>
         </div>
-
+        <div class="control-group">
+            <div class="controls">
+                <label class="control-label">Optimal Amout of Water: </label>
+                <input type="text" maxlength="2" name="waterForm" placeholder="In ounces per Day"/>
+                <p class="help-block"></p>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <label class="control-label">Optimal Air Temperature: </label>
+                <input type="text" maxlength="2" name="airTempForm" placeholder="In degrees"/>
+                <p class="help-block"></p>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <label class="control-label">Optimal Soil Temperature: </label>
+                <input type="text" maxlength="2" name="soilTempForm" placeholder="In degrees"/>
+                <p class="help-block"></p>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <label class="control-label">Optimal Amout of Light: </label>
+                <input type="text" maxlength="2" name="lightForm" placeholder="In Lumens per Day"/>
+                <p class="help-block"></p>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <label class="control-label">Optimal Amout of Humidity: </label>
+                <input type="text" maxlength="2" name="humidityForm" placeholder="In percent"/>
+                <p class="help-block"></p>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <label class="control-label">Optimal Amout of Wind: </label>
+                <input type="text" maxlength="2" name="windForm" placeholder="In miles per hour"/>
+                <p class="help-block"></p>
+            </div>
+        </div>
         <p>
             <input type="submit" value="Add Plant">
         </p>
 
     </form>
+
 
 
 </template>
@@ -84,8 +133,8 @@
         </div>
         <div class="control-group">
             <div class="controls">
-                <label class="control-label">h2: </label>
-                <input type="text" maxlength="2" name="h2Form" placeholder="{{planth2}}" required/>
+                <label class="control-label">Width: </label>
+                <input type="text" maxlength="2" name="widthForm" placeholder="{{planth2}}" required/>
                 <p class="help-block"></p>
             </div>
         </div>
@@ -109,7 +158,6 @@
         </p>
 
     </form>
-
 
 
 </template>

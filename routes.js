@@ -7,8 +7,8 @@ Router.route('/', function () {
 Router.route('/gettingStarted', function () {
   this.render('gettingStartedTemplate');
 }, {
-  name: 'gettingStarted.show'}
-);
+  name: 'gettingStarted.show'
+});
 
 Router.route('/settings', function () {
   this.render('settingsTemplate');

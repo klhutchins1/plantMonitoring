@@ -30,6 +30,20 @@
 			</li>
 		{{/each}}
 	</ul>
+        <p>
+            <input type="submit" value="Save Settings">
+        </p>
+
+
+
+    <p>
+        <button type="button" class="btn btn-default" aria-label="Left Align">
+            <span class="glyphicon glyphicon-download-alt" aria-hidden="true"> Backup Data</span>
+        </button>
+
+    </p>
+
+    {{>editFromSettings}}
 
 	<button type="button" class="DeploySettings">Deploy Initial settings</button>
 </template>
@@ -46,14 +60,28 @@
 		    <option value="Fahrenheit" selected="Fahrenheit">Fahrenheit</option>
 		    <option value="Celsius">Celsius</option>
         {{else}}
-
                 <option value="Celsius" selected="Celsius">Celsius</option>
                 <option value="Fahrenheit">Fahrenheit</option>
-
         {{/if}}
     </select>
+
+
 </template>
 
+<template name="editFromSettings">
+
+    <p>Edit Plants    </p>
+
+    <p>Edit Gardens
+        {{#each gardens}}
+            <div class="gardenListAreaInSettings">
+                <a class="gardenLinkInSettings" href="{{pathFor 'gardenDetails.show' }}/edit ">{{gardenName}}</a>
+            </div>
+	    {{/each}}
+    </p>
+
+
+</template>
 
 
 <template name="settingsForm">

@@ -6,8 +6,8 @@
 
     There have been <b>{{gardensCount}}</b> gardens created. <br>
 	{{#each gardens}}
-        <div>
-            <a href="{{pathFor 'gardenDetails.show' }} ">{{gardenName}}</a>
+        <div class="gardenListArea">
+            <a class="gardenLink" href="{{pathFor 'gardenDetails.show' }} ">{{gardenName}}</a>
         </div>
 	{{/each}}
 

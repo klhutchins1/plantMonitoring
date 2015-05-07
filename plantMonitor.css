@@ -1,9 +1,72 @@
 /* CSS declarations go here */
+.bodyContainer{
+  padding-left: 6px;
+}
 
+.gardenLink {
+
+  color: #FFFFFF;
+  display: inline-block;
+  font-family: Verdana, Geneva, Tahoma, Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 13px;
+  text-align: center;
+  text-decoration: none;
+  width: 250px;
+  white-space: nowrap;
+}
+
+
+.gardenListArea {
+  background-color: rgba(113, 0, 0, 0.83);
+  border-color: brown;
+  border-radius: 10px;
+  border: 1px solid;
+  display: inline-block;
+  margin-left: 0;
+  margin-right: 2px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 5px;
+}
 
 .navbar-brand,
 .navbar-nav li a {
     line-height: 25px;
     height: 25px;
-   
+
+}
+
+.plantLink {
+
+  color: #FFFFFF;
+  display: inline-block;
+  font-family: Verdana, Geneva, Tahoma, Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 13px;
+
+
+  text-align: center;
+  text-decoration: none;
+  width: 250px;
+  white-space: nowrap;
+
+
+}
+
+
+
+
+
+.plantsListArea {
+  background-color: rgb(25, 237, 25);
+  border-color: green;
+  border-radius: 10px;
+  border: 1px solid;
+  display: inline-block;
+  margin-left: 0;
+  margin-right: 2px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 5px;
 }
