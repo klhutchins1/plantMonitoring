@@ -24,10 +24,6 @@ Meteor.methods({
 	},
 
 
-	//setTZ: function(settingId, isSelected){
-	//	SettingsList.update(settingId, {$set: {timeZ: {isSelected: true }}} );
-	//},
-
 	//Toggles and save checkbox values to DB
 	toggleChecked: function (settingId, setChecked) {
 		if (setChecked == true || setChecked == false){

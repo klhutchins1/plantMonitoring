@@ -1,11 +1,16 @@
 Template.createGardens.helpers({
-	gardens: function () {
-		return GardensList.find();
-	},
 	gardensCount: function () {
 		return GardensList.find().count();
 	}
 });
+
+
+Template.gardenList.helpers({
+	gardens: function () {
+		return GardensList.find();
+	}
+});
+
 
 Template.createGardens.events({
 	"submit #new-garden": function(event){
@@ -19,3 +24,11 @@ Template.createGardens.events({
 	}
 });
 
+
+Template.editGardenDetailsTemplate.events({
+  "click #deleteGarden": function(event){
+    var garden = GardensList.findOne(this._id);
+    Meteor.call('removeGarden', garden);
+    Router.go('gardens.show');
+  }
+});

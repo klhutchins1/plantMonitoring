@@ -8,9 +8,8 @@ Template.settingsTemplate.helpers({
 	timeZ: function(isSelected){
 		return this.isSelected ===  isSelected;
 	},
-
-
 });
+
 
 Template.settingsTempUnitsDropdown.helpers({
   tempSelectIs: function(unitsForTemp){
@@ -23,20 +22,11 @@ Template.settingsTempUnitsDropdown.helpers({
 Template.settingsTemplate.events({
 	"click .toggle-checked": function () {
 		Meteor.call("toggleChecked", this._id, ! this.isChecked );
-
 	},
 	"click .tempurature": function(){
 		var unitsTemp = $('#tempSelect').val();
-
 		console.log(unitsTemp);
 		Meteor.call('setTempUnit', this._id, unitsTemp);
-	},
-	"click .timeZone": function(){
-
-		//console.log(this.timeZ.label);
-		//Meteor.call('testinsert', this._id);
-		//need to get inner value of timeZ if it's true or false
-		//Meteor.call("setTZ", this._id, this.isChecked, this.value);
 	},
 	"submit .new-setting": function () {
 		var settingName = event.target.settingNameForm.value;
@@ -50,7 +40,6 @@ Template.settingsTemplate.events({
 			return false;
 		}
 	},
-
   //deploys the initial settings to the DB
 	"click .DeploySettings": function () {
 		Meteor.call('gettingStartedDeploySettings');

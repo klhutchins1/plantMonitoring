@@ -2,11 +2,9 @@
 	<h1>
 		Settings
 	</h1>
-
 		<form class="new-setting">
 			<input type="text" name="settingNameForm" placeholder="Type to add new Setting">
 			<input type="submit" value="Add Setting">
-
 		</form>
 		<button type="button" class="editSettings" >Edit Settings</button>
 	<ul>
@@ -30,12 +28,9 @@
 			</li>
 		{{/each}}
 	</ul>
-        <p>
-            <input type="submit" value="Save Settings">
-        </p>
-
-
-
+    <p>
+        <input type="submit" value="Save Settings">
+    </p>
     <p>
         <button type="button" class="btn btn-default" aria-label="Left Align">
             <span class="glyphicon glyphicon-download-alt" aria-hidden="true"> Backup Data</span>
@@ -48,30 +43,27 @@
 	<button type="button" class="DeploySettings">Deploy Initial settings</button>
 </template>
 
+
 <template name="settingsCheckbox">
 	<input type="{{inputType}}" checked="{{isChecked}}" class="toggle-checked" value="{{_id}}" name="{{name}}" />
 </template>
 
 
 <template name="settingsTempUnitsDropdown">
-
 	<select class="tempurature" id="tempSelect" name="tempName">
         {{#if tempSelectIs "Fahrenheit"}}
 		    <option value="Fahrenheit" selected="Fahrenheit">Fahrenheit</option>
 		    <option value="Celsius">Celsius</option>
         {{else}}
-                <option value="Celsius" selected="Celsius">Celsius</option>
-                <option value="Fahrenheit">Fahrenheit</option>
+            <option value="Celsius" selected="Celsius">Celsius</option>
+            <option value="Fahrenheit">Fahrenheit</option>
         {{/if}}
     </select>
-
-
 </template>
 
+
 <template name="editFromSettings">
-
-    <p>Edit Plants    </p>
-
+    <p>Edit Plants</p>
     <p>Edit Gardens
         {{#each gardens}}
             <div class="gardenListAreaInSettings">
@@ -79,8 +71,6 @@
             </div>
 	    {{/each}}
     </p>
-
-
 </template>
 
 

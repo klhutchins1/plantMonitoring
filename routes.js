@@ -40,7 +40,7 @@ Router.route('/gardens/:gardenName', function () {
   }
 });
 
-Router.route('/garden/:gardenName/edit', function () {
+Router.route('/gardens/:gardenName/edit', function () {
   this.render('editGardenDetailsTemplate');
 }, {
   name: 'editGardenDetails.show',

@@ -1,13 +1,16 @@
 /* CSS declarations go here */
+
+
+
 .bodyContainer{
   padding-left: 6px;
 }
 
 .createH2{
-    margin-bottom: 5px;
+  margin-bottom: 5px;
 }
-.createEditForm {
 
+.createEditForm {
   margin-left: 25px;
   margin-right: 100px;
   padding: 0px 0px 15px;
@@ -43,6 +46,11 @@
 
 .help-block{
   margin-top: -20px;
+}
+
+.form-control {
+  width:250px;
+  height:14px;
 }
 
 .navbar-brand,

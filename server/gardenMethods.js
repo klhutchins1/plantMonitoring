@@ -13,7 +13,11 @@ Meteor.methods({
       isAutomatied: automated
 
 		});
-	}
+	},
+
+  removeGarden: function (garden){
+     GardensList.remove({ _id: garden._id});
+  }
 
 
 

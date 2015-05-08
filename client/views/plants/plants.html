@@ -1,103 +1,115 @@
 <template name="plantsTemplate">
-	{{>createPlants}}
+    {{>createPlants}}
 </template>
 
 <template name="createPlants">
 
     There have been <b>{{plantsCount}}</b> plants created. <br>
-	{{#each plants}}
-        <div class="plantsListArea">
-            <a class="plantLink" href="{{pathFor 'plantDetails.show' }} ">{{plantName}}</a>
-        </div>
-	{{/each}}
+    {{>plantList}}
 
-    <div class="createEditForm">
-        <h2 class="createH2">Create a new plant</h2>
+    <div class="createEditForm container">
+        <h2 class="createH2">Create a plant</h2>
         <form class="form-horizontal" id="new-plant">
             <div class="form-group">
                 <label for="plantNameForm" class="col-sm-3 control-label">Plant Name: </label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" maxlength="25" id="plantNameForm" name="plantNameForm" placeholder="Name of new Plant" required/>
+                    <input type="text" class="form-control input-sm" maxlength="25" id="plantNameForm" name="plantNameForm" placeholder="Name of new Plant" required/>
                 </div>
                 <p class="help-block"></p>
             </div>
             <div class="form-group">
                 <label for="memberOfGardenForm" class="col-sm-2 control-label">In which Garden: </label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" maxlength="2" id="memberOfGardenForm" name="memberOfGardenForm" />
+                    <input type="text" class="form-control input-sm" maxlength="2" id="memberOfGardenForm" name="memberOfGardenForm" />
                 </div>
                 <p class="help-block"></p>
             </div>
             <div class="form-group">
                 <label for="lengthForm" class="col-sm-2 control-label">Length: </label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" maxlength="2" id="lengthForm" name="lengthForm" placeholder="In Feet" required/>
+                    <input type="text" class="form-control input-sm" maxlength="2" id="lengthForm" name="lengthForm" placeholder="In Feet" required/>
                 </div>
                 <p class="help-block"></p>
             </div>
             <div class="form-group">
                 <label for="widthForm" class="col-sm-2 control-label">Width: </label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" maxlength="2" id="widthForm" name="widthForm" placeholder="In Feet" required/>
+                    <input type="text" class="form-control input-sm" maxlength="2" id="widthForm" name="widthForm" placeholder="In Feet" required/>
                 </div>
                 <p class="help-block"></p>
             </div>
             <div class="form-group">
-                <label for="monitoredCheckbox" class="col-sm-2 control-label">Is monitored: </label>
-                <div class="col-sm-10">
-                    <input type="checkbox" checked="true" class="toggle-checked" id="monitoredCheckbox" name="monitoredCheckbox"/>
+                <div class="col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" class="toggle-checked" id="automatedCheckbox" name="automatedCheckbox"> <strong>Is Automated</strong>
+                        </label>
+                        <p class="help-block"></p>
+                    </div>
                 </div>
-                <p class="help-block"></p>
             </div>
             <div class="form-group">
-                <label for="automatedCheckbox" class="col-sm-2 control-label">Is Automated: </label>
-                <div class="col-sm-10">
-                    <input type="checkbox" class="toggle-checked" id="automatedCheckbox" name="automatedCheckbox"/>
+                <div class="col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" class="toggle-checked" id="monitoredCheckbox" name="automatedCheckbox"> <strong>Is monitored</strong>
+                        </label>
+                        <p class="help-block"></p>
+                    </div>
                 </div>
-                <p class="help-block"></p>
             </div>
-            <div class="form-group">
-                <label for="waterForm" class="col-sm-2 control-label">Optimal Amout of Water: </label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" maxlength="2" id="waterForm" name="waterForm" placeholder="In ounces per Day"/>
+            <button class="btn btn-primary" type="button" id="advancedToggle" data-toggle="collapse" data-target="#advanced" aria-expanded="false" aria-controls="advanced">
+                Advanced
+            </button>
+            <div class="collapse" id="advanced" >
+
+
+
+                <div class="form-group">
+                    <label for="waterForm" class="col-sm-2 control-label">Optimal Amout of Water: </label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control input-sm" maxlength="2" id="waterForm" name="waterForm" placeholder="In ounces per Day"/>
+                    </div>
+                    <p class="help-block"></p>
                 </div>
-                <p class="help-block"></p>
-            </div>
-            <div class="form-group">
-                <label for="airTempForm" class="col-sm-2 control-label">Optimal Air Temperature: </label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" maxlength="2" id="airTempForm" name="airTempForm" placeholder="In degrees"/>
+                <div class="form-group">
+                    <label for="airTempForm" class="col-sm-2 control-label">Optimal Air Temperature: </label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control input-sm" maxlength="2" id="airTempForm" name="airTempForm" placeholder="In degrees"/>
+                    </div>
+                    <p class="help-block"></p>
                 </div>
-                <p class="help-block"></p>
-            </div>
-            <div class="form-group">
-                <label for="soilTempForm" class="col-sm-2 control-label">Optimal Soil Temperature: </label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" maxlength="2" id="soilTempForm" name="soilTempForm" placeholder="In degrees"/>
+                <div class="form-group">
+                    <label for="soilTempForm" class="col-sm-2 control-label">Optimal Soil Temperature: </label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control input-sm" maxlength="2" id="soilTempForm" name="soilTempForm" placeholder="In degrees"/>
+                    </div>
+                    <p class="help-block"></p>
                 </div>
-                <p class="help-block"></p>
-            </div>
-            <div class="form-group">
-                <label for="lightForm" class="col-sm-2 control-label">Optimal Amout of Light: </label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" maxlength="2" id="lightForm" name="lightForm" placeholder="In Lumens per Day"/>
+                <div class="form-group">
+                    <label for="lightForm" class="col-sm-2 control-label">Optimal Amout of Light: </label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control input-sm" maxlength="2" id="lightForm" name="lightForm" placeholder="In Lumens per Day"/>
+                    </div>
+                    <p class="help-block"></p>
                 </div>
-                <p class="help-block"></p>
-            </div>
-            <div class="form-group">
-                <label for="humidityForm" class="col-sm-2 control-label">Optimal Amout of Humidity: </label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" maxlength="2" id="humidityForm" name="humidityForm" placeholder="In percent"/>
+                <div class="form-group">
+                    <label for="humidityForm" class="col-sm-2 control-label">Optimal Amout of Humidity: </label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control input-sm" maxlength="2" id="humidityForm" name="humidityForm" placeholder="In percent"/>
+                    </div>
+                    <p class="help-block"></p>
                 </div>
-                <p class="help-block"></p>
-            </div>
-            <div class="form-group">
-                <label for="windForm" class="col-sm-2 control-label">Optimal Amout of Wind: </label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" maxlength="2" id="windForm" name="windForm" placeholder="In miles per hour"/>
+                <div class="form-group">
+                    <label for="windForm" class="col-sm-2 control-label">Optimal Amout of Wind: </label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control input-sm" maxlength="2" id="windForm" name="windForm" placeholder="In miles per hour"/>
+                    </div>
+                    <p class="help-block"></p>
                 </div>
-                <p class="help-block"></p>
+
             </div>
+
             <p>
                 <input type="submit" value="Add Plant">
             </p>
@@ -109,57 +121,136 @@
 
 </template>
 
+<template name="plantList">
+    {{#each plants}}
+    <div class="plantsListArea">
+        <a class="plantLink" href="{{pathFor 'plantDetails.show' }} ">{{plantName}}</a>
+    </div>
+    {{/each}}
+</template>
+
 <template name="plantDetailsTemplate">
     <h2>{{plantName}}</h2>
-    <p>{{createdAt}}</p>
+    <p>Created at:{{createdAt}}</p>
+    <p>Last Edited:{{editedAt}}</p>
+
+    <p>Length: {{plantLength}}ft.</p>
+    <p>Width: {{plantWidth}}ft. </p>
+    <p>Water: {{water}} oz.</p>
+    <p>{{airTemp}} degrees</p>
+    <p>{{soilTemp}} degrees</p>
+    <p>{{light}} Lumens</p>
+    <p>{{humidity}}%</p>
+    <p>{{wind}}mph</p>
+
     <a href="{{pathFor 'editPlantDetails.show' }} ">Edit Plant?</a>
 </template>
 
 
 <template name="editPlantDetailsTemplate">
+    <div class="createEditForm">
+        <h2 class="createH2">Edit {{plantName}}</h2>
+        <form class="form-horizontal" id="new-plant">
+            <div class="form-group">
+                <label for="plantNameForm" class="col-sm-3 control-label">Plant Name: </label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control input-sm" maxlength="25" id="plantNameForm" name="plantNameForm" value="{{plantName}}" required/>
+                </div>
+                <p class="help-block"></p>
+            </div>
+            <div class="form-group">
+                <label for="memberOfGardenForm" class="col-sm-2 control-label">In which Garden: </label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control input-sm" maxlength="2" id="memberOfGardenForm" name="memberOfGardenForm" />
+                </div>
+                <p class="help-block"></p>
+            </div>
+            <div class="form-group">
+                <label for="lengthForm" class="col-sm-2 control-label">Length: </label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control input-sm" maxlength="2" id="lengthForm" name="lengthForm" value="{{plantLength}}" required/>
+                </div>
+                <p class="help-block"></p>
+            </div>
+            <div class="form-group">
+                <label for="widthForm" class="col-sm-2 control-label">Width: </label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control input-sm" maxlength="2" id="widthForm" name="widthForm" value="{{plantWidth}}" required/>
+                </div>
+                <p class="help-block"></p>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" class="toggle-checked" id="automatedCheckbox" name="automatedCheckbox"> <strong>Is Automated</strong>
+                        </label>
+                        <p class="help-block"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" class="toggle-checked" id="monitoredCheckbox" name="automatedCheckbox"> <strong>Is monitored</strong>
+                        </label>
+                        <p class="help-block"></p>
+                    </div>
+                </div>
+            </div>
+            Advanced
+            <div class="form-group">
+                <label for="waterForm" class="col-sm-2 control-label">Optimal Amout of Water: </label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control input-sm" maxlength="2" id="waterForm" name="waterForm" value="{{water}}"/>
+                </div>
+                <p class="help-block"></p>
+            </div>
+            <div class="form-group">
+                <label for="airTempForm" class="col-sm-2 control-label">Optimal Air Temperature: </label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control input-sm" maxlength="2" id="airTempForm" name="airTempForm" value="{{airTemp}}"/>
+                </div>
+                <p class="help-block"></p>
+            </div>
+            <div class="form-group">
+                <label for="soilTempForm" class="col-sm-2 control-label">Optimal Soil Temperature: </label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control input-sm" maxlength="2" id="soilTempForm" name="soilTempForm" value="{{soilTemp}}"/>
+                </div>
+                <p class="help-block"></p>
+            </div>
+            <div class="form-group">
+                <label for="lightForm" class="col-sm-2 control-label">Optimal Amout of Light: </label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control input-sm" maxlength="2" id="lightForm" name="lightForm" value="{{light}}"/>
+                </div>
+                <p class="help-block"></p>
+            </div>
+            <div class="form-group">
+                <label for="humidityForm" class="col-sm-2 control-label">Optimal Amout of Humidity: </label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control input-sm" maxlength="2" id="humidityForm" name="humidityForm" value="{{humidity}}"/>
+                </div>
+                <p class="help-block"></p>
+            </div>
+            <div class="form-group">
+                <label for="windForm" class="col-sm-2 control-label">Optimal Amout of Wind: </label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control input-sm" maxlength="2" id="windForm" name="windForm" value="{{wind}}"/>
+                </div>
+                <p class="help-block"></p>
+            </div>
+            <p>
+                <input type="submit" value="Save Plant">
+            </p>
 
-    <form class="edit-plantName">
-        <div class="control-group">
-            <div class="controls">
-                <label class="control-label">Plant Name: </label>
-                <input type="text" maxlength="25" name="plantNameForm" placeholder="{{plantName}}" required/>
-                <p class="help-block"></p>
-            </div>
-        </div>
-        <div class="control-group">
-            <div class="controls">
-                <label class="control-label">Length: </label>
-                <input type="text" maxlength="2" name="heightForm" placeholder="{{plantLength}}" required/>
-                <p class="help-block"></p>
-            </div>
-        </div>
-        <div class="control-group">
-            <div class="controls">
-                <label class="control-label">Width: </label>
-                <input type="text" maxlength="2" name="widthForm" placeholder="{{planth2}}" required/>
-                <p class="help-block"></p>
-            </div>
-        </div>
-        <div class="control-group">
-            <div class="controls">
-                <label class="control-label">Is monitored: </label>
-                <input type="checkbox" checked="true" class="toggle-checked" name="monitoredCheckbox"/>
-                <p class="help-block"></p>
-            </div>
-        </div>
-        <div class="control-group">
-            <div class="controls">
-                <label class="control-label">Is Automated: </label>
-                <input type="checkbox" class="toggle-checked" name="automatedCheckbox"/>
-                <p class="help-block"></p>
-            </div>
-        </div>
-
+        </form>
         <p>
-            <input type="submit" value="Add Plant">
+            <input type="submit" id="deletePlant" value="Delete Plant">
         </p>
 
-    </form>
-
+    </div>
 
 </template>

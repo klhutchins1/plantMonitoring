@@ -1,12 +1,18 @@
 Template.createPlants.helpers({
-	plants: function() {
-		return PlantsList.find();
-	},
 	plantsCount: function () {
 		return PlantsList.find().count();
 	}
 });
 
+
+Template.plantList.helpers({
+	plants: function() {
+		return PlantsList.find();
+	}
+});
+
+
+//gets form info to create the plants and calls the addPlant method on the server to add data to DB
 Template.createPlants.events({
 	"submit #new-plant": function(event){
 		var plantName = event.target.plantNameForm.value;
@@ -20,11 +26,18 @@ Template.createPlants.events({
     var light = event.target.lightForm.value;
     var humidity = event.target.humidityForm.value;
     var wind = event.target.windForm.value;
-
-
-
 		Meteor.call('addPlant', plantName, length, width, monitored,
-                automated, airTemp, soilTemp, light, humidity, wind);
+                automated, water, airTemp, soilTemp, light, humidity, wind);
 		return false;
 	}
+});
+
+//call server function removePlant when deletePlant is clicked
+Template.editPlantDetailsTemplate.events({
+  "click #deletePlant": function(event){
+    var plant = PlantsList.findOne(this._id);
+    Meteor.call('removePlant', plant);
+    Router.go('plants.show');
+  }
+
 });
