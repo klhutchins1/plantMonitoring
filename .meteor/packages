@@ -13,3 +13,5 @@ less
 joshowens:timezone-picker
 mrt:jqbootstrapvalidation
 pfafman:filesaver
+underscore
+aldeed:autoform

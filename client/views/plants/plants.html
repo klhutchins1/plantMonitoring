@@ -111,7 +111,9 @@
             </div>
 
             <p>
-                <input type="submit" value="Add Plant">
+                <button type="submit" id="savePlant" class="btn btn-default" aria-label="Left Align">
+                    <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"> Save Plant</span>
+                </button>
             </p>
 
         </form>
@@ -199,7 +201,10 @@
                     </div>
                 </div>
             </div>
-            Advanced
+            <button class="btn btn-primary" type="button" id="advancedToggle" data-toggle="collapse" data-target="#advanced" aria-expanded="false" aria-controls="advanced">
+                Advanced
+            </button>
+            <div class="collapse" id="advanced" >
             <div class="form-group">
                 <label for="waterForm" class="col-sm-2 control-label">Optimal Amout of Water: </label>
                 <div class="col-sm-10">
@@ -242,14 +247,18 @@
                 </div>
                 <p class="help-block"></p>
             </div>
+        </div>
             <p>
-                <input type="submit" value="Save Plant">
+                <button type="submit" id="savePlant" class="btn btn-default" aria-label="Left Align">
+                    <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"> Save Plant</span>
+                </button>
+                <button type="button" id="deletePlant" class="btn btn-default" aria-label="Left Align">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"> Delete Plant</span>
+                </button>
             </p>
 
         </form>
-        <p>
-            <input type="submit" id="deletePlant" value="Delete Plant">
-        </p>
+
 
     </div>
 

@@ -36,8 +36,16 @@ Template.createPlants.events({
 Template.editPlantDetailsTemplate.events({
   "click #deletePlant": function(event){
     var plant = PlantsList.findOne(this._id);
-    Meteor.call('removePlant', plant);
-    Router.go('plants.show');
+    var del = confirm("Are you sure you want to Delete?");
+    if (del == true){
+      Meteor.call('removePlant', plant);
+      Router.go('plants.show');
+    }else{
+
+    }
+
+
+
   }
 
 });

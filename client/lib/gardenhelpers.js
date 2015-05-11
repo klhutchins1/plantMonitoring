@@ -28,7 +28,14 @@ Template.createGardens.events({
 Template.editGardenDetailsTemplate.events({
   "click #deleteGarden": function(event){
     var garden = GardensList.findOne(this._id);
-    Meteor.call('removeGarden', garden);
-    Router.go('gardens.show');
+    var del = confirm("Are you sure you want to Delete?");
+    if (del == true){
+      Meteor.call('removeGarden', garden);
+      Router.go('gardens.show');
+    }else{
+
+    }
+
+
   }
 });
