@@ -1,10 +1,11 @@
 plantMonitoring
 =======
+Manage your plants and gardens
 
 #Requirements
 meteor
 
-#description
+#Description
 Doesn't do much at the moment. Just getting settings save to DB and geting used to Meteor
 
 Will eventually be working on RasPi, to monitor custom gardens and plants.
