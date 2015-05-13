@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 plantMonitoring
 =======
 Manage your plants and gardens
@@ -62,3 +63,11 @@ sudo mkdir /home/pi/plantMonitoring
 git clone https://github.com/klhutchins1/plantMonitoring.git
 cd plantMonitoring/client/
 git clone https://github.com/DerMambo/stylesheets.git
+=======
+stylesheets
+===========
+
+Created for my blogpost:
+
+[Meteorjs and Twitter Bootstrap - The Right Way](http://www.manuel-schoebel.com/blog/meteorjs-and-twitter-bootstrap---the-right-way)
+>>>>>>> stylesheets/master
