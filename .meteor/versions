@@ -48,6 +48,7 @@ mrt:moment@2.8.1
 mrt:moment-timezone@0.2.1
 nemo64:bootstrap@3.3.4_2
 nemo64:bootstrap-data@3.3.4_1
+npm-container@1.0.0
 observe-sequence@1.0.6
 ordered-dict@1.0.3
 pfafman:filesaver@0.2.0_1

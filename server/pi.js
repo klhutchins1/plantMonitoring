@@ -1,1 +1,1 @@
-var wpi = Meteor.npmRequire('wiring-pi');
+//var wpi = Meteor.npmRequire('wiring-pi');
