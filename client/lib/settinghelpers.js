@@ -1,29 +1,29 @@
-Template.settingsTemplate.helpers({
-	settings: function(){
+Template.settingsTemplate.helpers( {
+	settings: function () {
 		return SettingsList.find();
 	},
-	settingTypeIs: function(inputType){
+	settingTypeIs: function (inputType) {
 		return this.inputType === inputType;
 	},
-	timeZ: function(isSelected){
+	timeZ: function (isSelected) {
 		return this.isSelected ===  isSelected;
 	},
-});
+} );
 
 
-Template.settingsTempUnitsDropdown.helpers({
-  tempSelectIs: function(unitsForTemp){
+Template.settingsTempUnitsDropdown.helpers( {
+  tempSelectIs: function (unitsForTemp) {
 		return this.unitsForTemp ===  unitsForTemp;
 	}
 
-});
+} );
 
 
-Template.settingsTemplate.events({
+Template.settingsTemplate.events( {
 	"click .toggle-checked": function () {
 		Meteor.call("toggleChecked", this._id, ! this.isChecked );
 	},
-	"click .tempurature": function(){
+	"click .tempurature": function () {
 		var unitsTemp = $('#tempSelect').val();
 		console.log(unitsTemp);
 		Meteor.call('setTempUnit', this._id, unitsTemp);
@@ -31,7 +31,7 @@ Template.settingsTemplate.events({
 	"submit .new-setting": function () {
 		var settingName = event.target.settingNameForm.value;
 		//ensure setting name has value, serverSide check
-		if(settingName == ""){
+		if(settingName == "") {
 			console.log("User did not enter a Setting Name");
 			return false;
 		}else{
@@ -44,4 +44,4 @@ Template.settingsTemplate.events({
 	"click .DeploySettings": function () {
 		Meteor.call('gettingStartedDeploySettings');
 	}
-});
+} );

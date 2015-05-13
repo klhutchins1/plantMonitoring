@@ -1,20 +1,20 @@
-Template.createPlants.helpers({
+Template.createPlants.helpers( {
 	plantsCount: function () {
 		return PlantsList.find().count();
 	}
-});
+} );
 
 
-Template.plantList.helpers({
+Template.plantList.helpers( {
 	plants: function() {
 		return PlantsList.find();
 	}
-});
+} );
 
 
 //gets form info to create the plants and calls the addPlant method on the server to add data to DB
-Template.createPlants.events({
-	"submit #new-plant": function(event){
+Template.createPlants.events( {
+	"submit #new-plant": function (event) {
 		var plantName = event.target.plantNameForm.value;
     var length = event.target.lengthForm.value;
     var width = event.target.widthForm.value;
@@ -30,11 +30,11 @@ Template.createPlants.events({
                 automated, water, airTemp, soilTemp, light, humidity, wind);
 		return false;
 	}
-});
+} );
 
 //call server function removePlant when deletePlant is clicked
-Template.editPlantDetailsTemplate.events({
-  "click #deletePlant": function(event){
+Template.editPlantDetailsTemplate.events( {
+  "click #deletePlant": function (event) {
     var plant = PlantsList.findOne(this._id);
     var del = confirm("Are you sure you want to Delete?");
     if (del == true){
@@ -48,4 +48,4 @@ Template.editPlantDetailsTemplate.events({
 
   }
 
-});
+} );

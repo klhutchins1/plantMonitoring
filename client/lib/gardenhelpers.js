@@ -1,19 +1,19 @@
-Template.createGardens.helpers({
+Template.createGardens.helpers( {
 	gardensCount: function () {
 		return GardensList.find().count();
 	}
-});
+} );
 
 
-Template.gardenList.helpers({
+Template.gardenList.helpers( {
 	gardens: function () {
 		return GardensList.find();
 	}
-});
+} );
 
 
-Template.createGardens.events({
-	"submit #new-garden": function(event){
+Template.createGardens.events( {
+	"submit #new-garden": function (event) {
 		var gardenName = event.target.gardenNameForm.value;
     var length = event.target.lengthForm.value;
     var width = event.target.widthForm.value;
@@ -22,11 +22,11 @@ Template.createGardens.events({
 		Meteor.call('addGarden', gardenName, length, width, monitored, automated);
 		return false;
 	}
-});
+} );
 
 
-Template.editGardenDetailsTemplate.events({
-  "click #deleteGarden": function(event){
+Template.editGardenDetailsTemplate.events( {
+  "click #deleteGarden": function (event){
     var garden = GardensList.findOne(this._id);
     var del = confirm("Are you sure you want to Delete?");
     if (del == true){
@@ -38,4 +38,4 @@ Template.editGardenDetailsTemplate.events({
 
 
   }
-});
+} );
