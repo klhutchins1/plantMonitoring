@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 plantMonitoring
 =======
 Manage your plants and gardens
@@ -62,6 +61,6 @@ curl -L -O https://github.com/4commerce-technologies-AG/meteor/releases/download
 sudo mkdir /home/pi/plantMonitoring
 git clone https://github.com/klhutchins1/plantMonitoring.git
 cd plantMonitoring/client/
-git clone https://github.com/DerMambo/stylesheets.git
-=======
+git remote add stylesheets https://github.com/DerMambo/stylesheets.git
+
 
