@@ -60,3 +60,5 @@ curl -L -O https://github.com/4commerce-technologies-AG/meteor/releases/download
 # Install plant monitor
 sudo mkdir /home/pi/plantMonitoring
 git clone https://github.com/klhutchins1/plantMonitoring.git
+cd plantMonitoring/client/
+git clone https://github.com/DerMambo/stylesheets.git
