@@ -1,1 +1,3 @@
-//var wpi = Meteor.npmRequire('wiring-pi');
+//var epoll1 = Meteor.npmRequire('epoll');
+//var onoff1 = Meteor.npmRequire('onoff');
+var sp = Meteor.npmRequire('serialport');

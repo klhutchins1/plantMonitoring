@@ -5,6 +5,34 @@ Manage your plants and gardens
 #Requirements
 meteor
 
+try:
+
+Doesn't work - OnOff: https://www.npmjs.com/package/onoff
+  https://github.com/TooTallNate/node-gyp#installation
+  https://www.microsoft.com/en-us/download/confirmation.aspx?id=44266
+
+
+TM-OnOFF: https://www.npmjs.com/package/tm-onoff
+gpio: https://www.npmjs.com/package/gpio
+rpi-gpio: https://www.npmjs.com/package/rpi-gpio
+pi-gpio: https://www.npmjs.com/package/pi-gpio
+r-pi-gpio: https://www.npmjs.com/package/r-pi-gpio
+https://www.npmjs.com/package/node-gpio
+https://www.npmjs.com/package/adc-pi-gpio
+https://www.npmjs.com/package/fastgpio
+https://www.npmjs.com/package/native-gpio
+https://www.npmjs.com/package/ras-pi-gpio
+https://www.npmjs.com/package/gpio-stream
+https://www.npmjs.com/package/node-pi-gpio
+https://www.npmjs.com/package/pi-pins
+
+
+pi4j: http://pi4j.com/example/control.html
+undoo: http://udoo.org/
+https://github.com/EnotionZ/GpiO
+http://www.espruino.com/
+
+
 #Description
 Doesn't do much at the moment. Just getting settings save to DB and geting used to Meteor
 
@@ -22,8 +50,8 @@ Plants - Can have 1 or 100 per Garden. Can have optimal settings for the plant t
 Ex. tomatoes need * of water per day, * amount of light ever * hours, should be kept at * temp.
 
 
-Monitoring - Will have the following at install: Air Temperature,  Soil Temperature, Soil Moisture, 
-Light Lumen, Humidity, Wind. Will be able to add any other. This can be with the raspi GPIOs. 
+Monitoring - Will have the following at install: Air Temperature,  Soil Temperature, Soil Moisture,
+Light Lumen, Humidity, Wind. Will be able to add any other. This can be with the raspi GPIOs.
 This can be at the plant or garden level.
 Raw data or graphs could be available.
 

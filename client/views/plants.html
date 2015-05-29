@@ -132,9 +132,9 @@
 </template>
 
 <template name="plantDetailsTemplate">
-    <h2>{{plantName}}</h2>
-    <p>Created at:{{createdAt}}</p>
-    <p>Last Edited:{{editedAt}}</p>
+    <h2 id="plantH2Title">{{plantName}}</h2>
+    <p>Created at: {{formatTime createdAt}}</p>
+    <p>Last Edited: {{formatTime editedAt}}</p>
 
     <p>Length: {{plantLength}}ft.</p>
     <p>Width: {{plantWidth}}ft. </p>
@@ -151,7 +151,7 @@
 
 <template name="editPlantDetailsTemplate">
     <div class="createEditForm">
-        <h2 class="createH2">Edit {{plantName}}</h2>
+        <h2 id="plantH2Title" class="createH2">Edit {{plantName}}</h2>
         <form class="form-horizontal" id="new-plant">
             <div class="form-group">
                 <label for="plantNameForm" class="col-sm-3 control-label">Plant Name: </label>

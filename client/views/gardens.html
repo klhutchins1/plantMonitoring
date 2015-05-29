@@ -61,9 +61,9 @@
 </template>
 
 <template name="gardenDetailsTemplate">
-    <h2>{{gardenName}} </h2>
-    <p>Created at: {{createdAt}} </p>
-    <p>Last edited at:{{editedAt}} </p>
+    <h2 id="gardenH2Title">{{gardenName}} </h2>
+    <p>Created at: {{formatTime createdAt}} </p>
+    <p>Last edited at:{{formatTime editedAt}} </p>
     <p>Length: {{gardenLength}}</p>
     <p>Width: {{gardenWidth}}</p>
 
@@ -83,11 +83,9 @@
 
 <template name="editGardenDetailsTemplate">
 
-    <h2>{{gardenName}} </h2>
-    <p>Created at: {{createdAt}} </p>
-    <p>Last edited at:{{editedAt}} </p>
-    {{gardenLength}}
-    {{gardenWidth}}
+
+   {{>gardenDetailsTemplate}}
+
 
     <div class="createEditForm">
         <h2 class="createH2">Create a new Garden</h2>
