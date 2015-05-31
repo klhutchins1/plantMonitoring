@@ -39,9 +39,6 @@ Template.settingsTemplate.events( {
 			event.target.settingNameForm.value = "";
 			return false;
 		}
-	},
-  //deploys the initial settings to the DB
-	"click .DeploySettings": function () {
-		Meteor.call('gettingStartedDeploySettings');
 	}
+
 } );

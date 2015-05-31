@@ -35,7 +35,8 @@ Template.editGardenDetailsTemplate.events( {
     }else{
 
     }
-
-
   }
 } );
+
+
+
