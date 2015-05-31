@@ -19,6 +19,3 @@ meteorhacks:npm
 
 
 npm-container
-meteorhacks:kadira
-meteorhacks:kadira-profiler
-meteorhacks:zones
