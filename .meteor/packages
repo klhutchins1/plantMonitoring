@@ -7,8 +7,6 @@
 meteor-platform
 autopublish
 iron:router
-nemo64:bootstrap
-less
 joshowens:timezone-picker
 mrt:jqbootstrapvalidation
 pfafman:filesaver
@@ -16,6 +14,5 @@ underscore
 aldeed:autoform
 mrt:moment
 meteorhacks:npm
-
-
 npm-container
+materialize:materialize
