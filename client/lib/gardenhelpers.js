@@ -15,10 +15,10 @@ Template.gardenList.helpers( {
 Template.createGardens.events( {
 	"submit #new-garden": function (event) {
 		var gardenName = event.target.gardenNameForm.value;
-    var length = event.target.lengthForm.value;
-    var width = event.target.widthForm.value;
-    var monitored = event.target.monitoredCheckbox.value;
-    var automated = event.target.automatedCheckbox.value;
+    var length = event.target.gardenLengthForm.value;
+    var width = event.target.gardenWidthForm.value;
+    var monitored = event.target.gardenMonitoredCheckbox.value;
+    var automated = event.target.gardenAutomatedCheckbox.value;
 		Meteor.call('addGarden', gardenName, length, width, monitored, automated);
 		return false;
 	}
@@ -37,6 +37,3 @@ Template.editGardenDetailsTemplate.events( {
     }
   }
 } );
-
-
-

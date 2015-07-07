@@ -17,7 +17,6 @@ Meteor.methods( {
     if (automated != true || automated !=false) {
       console.log("Gardenautomated is out of range at " + automated);
     }
-
     //need to move this into the if/else cause right now it's putting the data in the no matter the above chekc
     GardensList.insert( {
 			gardenName: gardenName,

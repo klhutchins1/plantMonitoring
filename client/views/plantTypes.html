@@ -1,0 +1,51 @@
+<template name="plantTypeTemplate">
+  <div class="container">
+    <h2>Plant Taxonomy</h2>
+
+    <form id="new-plant-Type">
+      <div class="row">
+          <div class="input-field col s6">
+              <input id="plantTypeNameForm" type="text" class="validate" required>
+              <label for="plantTypeNameForm">Plant Common Name</label>
+          </div>
+          <div class="input-field col s6">
+              <input id="plantTypeBinomialNameForm" type="text" class="validate">
+              <label for="plantTypeBinomialNameForm">Binomial name</label>
+          </div>
+          <div class="input-field col s6">
+              <input id="plantTypeKingdomForm" type="text" class="validate">
+              <label for="plantTypeKingdomForm">Plant Kingdom</label>
+          </div>
+          <div class="input-field col s6">
+              <input id="plantTypeOrderForm" type="text" class="validate">
+              <label for="plantTypeOrderForm">Plant Order</label>
+          </div>
+          <div class="input-field col s6">
+              <input id="plantTypeFamilyForm" type="text" class="validate">
+              <label for="plantTypeFamilyForm">Plant Family</label>
+          </div>
+          <div class="input-field col s6">
+              <input id="plantTypeGenusForm" type="text" class="validate">
+              <label for="plantTypeGenusForm">Plant Genus</label>
+          </div>
+          <div class="input-field col s6">
+              <input id="plantTypeSpeciesForm" type="text" class="validate">
+              <label for="plantTypeSpeciesForm">Plant Species</label>
+          </div>
+          <div class="input-field col s6">
+              <input id="plantTypeVarietyForm" type="text" class="validate">
+              <label for="plantTypeVarietyForm">Plant Variety</label>
+          </div>
+      </div>
+      <button class="btn waves-effect waves-light" type="submit" name="action" id="savePlantType">Save Plant Type
+        <i class="material-icons">save</i>
+      </button>
+    </form>
+    
+    <button class="btn waves-effect waves-light" type="submit" name="action" id="savePlantType">Load Plant Type
+      <i class="material-icons">input</i>
+    </button>
+
+  </div>
+
+</template>

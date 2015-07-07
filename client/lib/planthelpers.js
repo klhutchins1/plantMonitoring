@@ -16,21 +16,25 @@ Template.plantList.helpers( {
 Template.createPlants.events( {
 	"submit #new-plant": function (event) {
 		var plantName = event.target.plantNameForm.value;
-    var length = event.target.lengthForm.value;
-    var width = event.target.widthForm.value;
-    var monitored = event.target.monitoredCheckbox.value;
-    var automated = event.target.automatedCheckbox.value;
-    var water = event.target.waterForm.value;
-    var airTemp = event.target.airTempForm.value;
-    var soilTemp = event.target.soilTempForm.value;
-    var light = event.target.lightForm.value;
-    var humidity = event.target.humidityForm.value;
-    var wind = event.target.windForm.value;
+    var length = event.target.plantLengthForm.value;
+    var width = event.target.plantWidthForm.value;
+    var monitored = event.target.plantMonitoredCheckbox.value;
+    var automated = event.target.plantAutomatedCheckbox.value;
+    var water = event.target.plantWaterForm.value;
+    var airTemp = event.target.plantAirTempForm.value;
+    var soilTemp = event.target.plantSoilTempForm.value;
+    var light = event.target.plantLightForm.value;
+    var humidity = event.target.plantHumidityForm.value;
+    var wind = event.target.plantWindForm.value;
 		Meteor.call('addPlant', plantName, length, width, monitored,
                 automated, water, airTemp, soilTemp, light, humidity, wind);
 		return false;
 	}
 } );
+
+Template.createPlants.rendered = function() {
+    this.$('.collapsible').collapsible();
+};
 
 //call server function removePlant when deletePlant is clicked
 Template.editPlantDetailsTemplate.events( {
@@ -43,8 +47,6 @@ Template.editPlantDetailsTemplate.events( {
     }else{
 
     }
-
-
 
   }
 

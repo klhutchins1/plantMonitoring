@@ -16,111 +16,96 @@
                     </div>
                     <div class="card-action">
                         <div class="createEditForm container">
-                            <form class="col s12" id="new-plant">
+                            <form id="new-plant">
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <input id="plantNameForm" type="text" placeholder="Name of new Plant: " class="validate">
-                                        <label class="active" for="plantNameForm">Plant Name:</label>
+                                        <input id="plantNameForm" type="text" class="validate" required>
+                                        <label for="plantNameForm">Plant Name:</label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12">
                                         <input id="memberOfGardenForm" type="text" class="validate">
-                                        <label class="active" for="memberOfGardenForm">In which Garden: </label>
+                                        <label for="memberOfGardenForm">In which Garden: </label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <input id="lengthForm" type="text" class="validate">
-                                        <label class="active" for="lengthForm">Length: </label>
+                                        <input id="plantLengthForm" type="text" class="validate">
+                                        <label for="plantLengthForm">Length: </label>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <input id="widthForm" type="text" class="validate">
-                                        <label class="active" for="widthForm">Width: </label>
+                                        <input id="plantWidthForm" type="text" class="validate">
+                                        <label for="plantWidthForm">Width: </label>
                                     </div>
                                 </div>
 
                                 <p>
-                                    <input type="checkbox" id="automatedCheckbox" />
-                                    <label for="automatedCheckbox">Is Automated</label>
+                                    <input type="checkbox" id="plantAutomatedCheckbox" />
+                                    <label for="plantAutomatedCheckbox">Is Automated</label>
                                 </p>
 
                                 <p>
-                                    <input type="checkbox" id="monitoredCheckbox" />
-                                    <label for="monitoredCheckbox">Is monitored</label>
+                                    <input type="checkbox" id="plantMonitoredCheckbox" />
+                                    <label for="plantMonitoredCheckbox">Is monitored</label>
                                 </p>
 
 
                                 <ul class="collapsible" data-collapsible="accordion">
                                     <li>
-                                        <div class="collapsible-header">Advanced</div>
+                                        <div class="collapsible-header col s12">Advanced</div>
                                         <div class="collapsible-body">
-                                            <p>
-                                                <div class="row">
-                                                    <div class="input-field col s12">
-                                                        <input id="waterForm" type="text" class="validate">
-                                                        <label class="active" for="waterForm" placeholder="In Ounces">Optimal Amout of Water: </label>
-                                                    </div>
+                                          <div class="row">
+                                                <div class="input-field col s12">
+                                                    <input id="plantWaterForm" type="text" class="validate">
+                                                    <label for="plantWaterForm" placeholder="In Ounces">Optimal Amout of Water: </label>
                                                 </div>
-                                            </p>
-                                            <p>
-                                                <div class="row">
-                                                    <div class="input-field col s12">
-                                                        <input id="airTempForm" type="text" class="validate">
-                                                        <label class="active" for="airTempForm" placeholder="In degrees">Optimal Air Temperature: </label>
-                                                    </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="input-field col s12">
+                                                    <input id="plantAirTempForm" type="text" class="validate">
+                                                    <label for="plantAirTempForm" placeholder="In degrees">Optimal Air Temperature: </label>
                                                 </div>
-                                            </p>
-                                            <p>
-                                                <div class="row">
-                                                    <div class="input-field col s12">
-                                                        <input id="soilTempForm" type="text" class="validate">
-                                                        <label class="active" for="soilTempForm" placeholder="In degrees">Optimal Soil Temperature: </label>
-                                                    </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="input-field col s12">
+                                                    <input id="plantSoilTempForm" type="text" class="validate">
+                                                    <label for="plantSoilTempForm" placeholder="In degrees">Optimal Soil Temperature: </label>
                                                 </div>
-                                            </p>
-                                            <p>
-                                                <div class="row">
-                                                    <div class="input-field col s12">
-                                                        <input id="lightForm" type="text" class="validate">
-                                                        <label class="active" for="lightForm" placeholder="In Lumens per Day">Optimal Amout of Light: </label>
-                                                    </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="input-field col s12">
+                                                    <input id="plantLightForm" type="text" class="validate">
+                                                    <label for="plantLightForm" placeholder="In Lumens per Day">Optimal Amout of Light: </label>
                                                 </div>
-                                            </p>
-                                            <p>
-                                                <div class="row">
-                                                    <div class="input-field col s12">
-                                                        <input id="humidityForm" type="text" class="validate">
-                                                        <label class="active" for="humidityForm" placeholder="In percent">Optimal Amout of Humidity: </label>
-                                                    </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="input-field col s12">
+                                                    <input id="plantHumidityForm" type="text" class="validate">
+                                                    <label for="plantHumidityForm" placeholder="In percent">Optimal Amout of Humidity: </label>
                                                 </div>
-                                            </p>
-                                            <p>
-                                                <div class="row">
-                                                    <div class="input-field col s12">
-                                                        <input id="windForm" type="text" class="validate">
-                                                        <label class="active" for="windForm" placeholder="In miles per hour">Optimal Amout of Wind: </label>
-                                                    </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="input-field col s12">
+                                                    <input id="plantWindForm" type="text" class="validate">
+                                                    <label for="plantWindForm" placeholder="In miles per hour">Optimal Amout of Wind: </label>
                                                 </div>
-                                            </p>
-
+                                            </div>
                                         </div>
 
-                                    </li>
-                                    <li>
-                                        <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
-                                        <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
                                     </li>
                                 </ul>
 
                                 <p>
-                                    <a class="waves-effect waves-light btn" id="savePlant">Save Plant <i class="material-icons">save</i></a>
+
+                                  <button class="btn waves-effect waves-light" type="submit" name="action" id="savePlant">Save Plant
+                                    <i class="material-icons">save</i>
+                                  </button>
+
                                 </p>
-
                             </form>
-
                         </div>
                     </div>
                 </div>

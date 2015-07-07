@@ -73,6 +73,13 @@ Router.route('/plants/:plantName/edit', function () {
   }
 });
 
-
-
-
+//plant Type Routes
+Router.route('/plantType', function () {
+  this.render('plantTypeTemplate');
+}, {
+  name: 'plantType.show',
+  data: function(){
+    var plantsTypeLinkVar = this.params.plantTypeName;
+    return  PlantTypeList.findOne({plantTypeName: plantsTypeLinkVar});
+  }
+});
