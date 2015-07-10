@@ -5,12 +5,6 @@ Template.createPlants.helpers( {
 } );
 
 
-Template.plantList.helpers( {
-	plants: function() {
-		return PlantsList.find();
-	}
-} );
-
 
 //gets form info to create the plants and calls the addPlant method on the server to add data to DB
 Template.createPlants.events( {

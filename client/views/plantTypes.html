@@ -2,7 +2,7 @@
   <div class="container">
     <h2>Plant Taxonomy</h2>
 
-    <form id="new-plant-Type">
+    <form id="new-plant-Type" action="#">
       <div class="row">
           <div class="input-field col s6">
               <input id="plantTypeNameForm" type="text" class="validate" required>
@@ -36,12 +36,24 @@
               <input id="plantTypeVarietyForm" type="text" class="validate">
               <label for="plantTypeVarietyForm">Plant Variety</label>
           </div>
+
+          <div class="file-field input-field col s6">
+            <input id="plantImageForm" type="text" class="file-path validate" />
+            <div class="btn">
+              <span>Plant Image</span>
+              <input type="file" />
+            </div>
+          </div>
+
+
+
+
       </div>
       <button class="btn waves-effect waves-light" type="submit" name="action" id="savePlantType">Save Plant Type
         <i class="material-icons">save</i>
       </button>
     </form>
-    
+
     <button class="btn waves-effect waves-light" type="submit" name="action" id="savePlantType">Load Plant Type
       <i class="material-icons">input</i>
     </button>
