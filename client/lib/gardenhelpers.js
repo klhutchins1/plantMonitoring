@@ -1,18 +1,17 @@
-Template.createGardens.helpers( {
+Template.createGardensTemplate.helpers( {
 	gardensCount: function () {
 		return GardensList.find().count();
 	}
 } );
 
-
-Template.gardenList.helpers( {
+Template.gardenListTemplate.helpers( {
 	gardens: function () {
 		return GardensList.find();
 	}
 } );
 
 
-Template.createGardens.events( {
+Template.createGardensTemplate.events( {
 	"submit #new-garden": function (event) {
 		var gardenName = event.target.gardenNameForm.value;
     var length = event.target.gardenLengthForm.value;

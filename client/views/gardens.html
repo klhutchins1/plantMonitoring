@@ -1,139 +1,137 @@
 <template name="gardensTemplate">
-    {{>createGardens}}
+  <div class="container">
+    {{>gardenShowTemplate}}
+  </div>
+</template>
+<template name="gardenShowTemplate">
+  <div class="row">
+    <div class="card-panel blue-grey white-text darken-1 medium">
+      <h4>Gardens</h4>
+      {{>gardenListTemplate}}
+      <a class="btn-floating btn-medium waves-effect waves-light red right" id="addGarden"
+      href="{{pathFor 'createGardensTemplate.show' }}"><i class="material-icons">add</i></a>
+    </div>
+  </div>
+</template>
+<template name="gardenListTemplate">
+  {{#each gardens}}
+    <a class="waves-effect waves-light btn brown" href="{{pathFor 'gardenDetailsTemplate.show' }} ">
+      <i class="material-icons left"></i>{{gardenName}}</a>
+  {{/each}}
 </template>
 
-<template name="createGardens">
-    <div class="container">
 
-        There have been <b>{{gardensCount}}</b> gardens created. <br>
-        {{>gardenList}}
-
-        <div class="row">
-            <div class="col s12 m6">
-                <div class="card blue-grey darken-1">
-                    <div class="card-content white-text">
-                        <span class="card-title">Create a new Garden</span>
-                    </div>
-                    <div class="card-action">
-                        <div class="createEditForm container">
-                            <form id="new-garden">
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <input id="gardenNameForm" type="text" length="25" class="validate" required>
-                                        <label for="gardenNameForm">Garden Name: </label>
-                                    </div>
-                                </div>
-
-
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <input id="gardenLengthForm" type="text" class="validate" required>
-                                        <label for="gardenLengthForm">Length: </label>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <input id="gardenWidthForm" type="text" class="validate" required>
-                                        <label for="gardenWidthForm">Width: </label>
-                                    </div>
-                                </div>
-
-                                <p>
-                                    <input type="checkbox" id="gardenMonitoredCheckbox" />
-                                    <label for="gardenMonitoredCheckbox">Is Automated</label>
-                                </p>
-                                <p>
-                                    <input type="checkbox" id="gardenAutomatedCheckbox" />
-                                    <label for="gardenAutomatedCheckbox">Is Automated</label>
-                                </p>
-                                <p>
-                                  <button class="btn waves-effect waves-light" type="submit" name="action" id="saveGarden">Save Garden
-                                    <i class="material-icons">save</i>
-                                  </button>
-
-                                </p>
-                            </form>
-                        </div>
-                    </div>
+<template name="createGardensTemplate">
+  <div class="container">
+    <div class="row">
+      <div class="card-panel blue-grey white-text darken-1 medium">
+        <h4>Create a new Garden</h4>
+        <div class="card-action">
+          <div class="createEditForm container">
+            <form id="new-garden">
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="gardenNameForm" type="text" length="25" class="validate" required>
+                  <label for="gardenNameForm">Garden Name:</label>
                 </div>
-            </div>
-        </div>
-    </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="gardenLengthForm" type="text" class="validate" required>
+                  <label for="gardenLengthForm">Length: </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="gardenWidthForm" type="text" class="validate" required>
+                  <label for="gardenWidthForm">Width: </label>
+                </div>
+              </div>
 
+              <p>
+                <input type="checkbox" id="gardenMonitoredCheckbox" />
+                <label for="gardenMonitoredCheckbox">Is Automated</label>
+              </p>
+              <p>
+                <input type="checkbox" id="gardenAutomatedCheckbox" />
+                <label for="gardenAutomatedCheckbox">Is Automated</label>
+              </p>
+              <p>
+                <button class="btn waves-effect waves-light" type="submit" name="action" id="saveGarden">Save Garden
+                  <i class="material-icons">save</i>
+                </button>
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </template>
 
 <template name="gardenDetailsTemplate">
 
-
-    <div class="container">
-        <div class="row">
-            <div class="col s12 m6">
-                <div class="card blue-grey darken-1">
-                    <div class="card-content white-text">
-                        <span class="card-title">{{gardenName}}</span>
-                    </div>
-                    <div class="card-action">
-                        <h2 id="gardenH2Title"> </h2>
-                        <p>Created at: {{formatTime createdAt}} </p>
-                        <p>Last edited at: {{formatTime editedAt}} </p>
-                        <p>Length: {{gardenLength}}</p>
-                        <p>Width: {{gardenWidth}}</p>
-                        <a class="waves-effect waves-light btn brown" href="{{pathFor 'editGardenDetails.show' }}  ">
-                            <i class="material-icons left"></i>Edit {{gardenName}}</a>
-                    </div>
-                </div>
-            </div>
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m6">
+        <div class="card blue-grey darken-1 medium">
+          <div class="card-content white-text">
+            <span class="card-title">{{gardenName}}</span>
+          </div>
+          <div class="card-action">
+            <h2 id="gardenH2Title"> </h2>
+            <p>Created at: {{formatTime createdAt}} </p>
+            <p>Last edited at: {{formatTime editedAt}} </p>
+            <p>Length: {{gardenLength}}</p>
+            <p>Width: {{gardenWidth}}</p>
+            <a class="waves-effect waves-light btn brown" href="{{pathFor 'editGardenDetailsTemplate.show' }}  ">
+              <i class="material-icons left"></i>Edit {{gardenName}}</a>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
+
 </template>
 
 
-<template name="gardenList">
-    {{#each gardens}}
-        <a class="waves-effect waves-light btn brown" href="{{pathFor 'gardenDetails.show' }} ">
-            <i class="material-icons left"></i>{{gardenName}}</a>
-	{{/each}}
-</template>
+
 
 
 <template name="editGardenDetailsTemplate">
 
+  {{>gardenDetailsTemplate}}
+  <div class="createEditForm">
+    <h2 class="createH2">Create a new Garden</h2>
+    <form class="form-horizontal" id="new-garden">
+      <div class="form-group">
+        <label for="gardenNameInput" class="col-sm-2 control-label">Garden Name: </label>
+        <div class="col-sm-10">
+          <input type="text"  class="form-control" id="gardenNameInput" maxlength="25" name="gardenNameForm" placeholder="{{gardenName}}" required/>
+        </div>
+        <p class="help-block"></p>
+      </div>
+      <div class="form-group">
+        <label for="gardenLengthInput" class="col-sm-2 control-label">Length: </label>
+        <input type="text" class="form-control" id="gardenLengthInput" maxlength="2" name="lengthForm" placeholder="{{gardenLength}}" required/>
+        <p class="help-block"></p>
+      </div>
 
-   {{>gardenDetailsTemplate}}
+      <div class="form-group">
+        <label for="gardenWidthInput" class="col-sm-2 control-label">Width: </label>
+        <input type="text" class="form-control" id="gardenWidthInput" maxlength="25" name="widthForm" placeholder="{{gardenWidth}}" required/>
+        <p class="help-block"></p>
+      </div>
 
-
-    <div class="createEditForm">
-        <h2 class="createH2">Create a new Garden</h2>
-        <form class="form-horizontal" id="new-garden">
-            <div class="form-group">
-                <label for="gardenNameInput" class="col-sm-2 control-label">Garden Name: </label>
-                <div class="col-sm-10">
-                    <input type="text"  class="form-control" id="gardenNameInput" maxlength="25" name="gardenNameForm" placeholder="{{gardenName}}" required/>
-                </div>
-                <p class="help-block"></p>
-            </div>
-            <div class="form-group">
-                <label for="gardenLengthInput" class="col-sm-2 control-label">Length: </label>
-                <input type="text" class="form-control" id="gardenLengthInput" maxlength="2" name="lengthForm" placeholder="{{gardenLength}}" required/>
-                <p class="help-block"></p>
-            </div>
-
-            <div class="form-group">
-                <label for="gardenWidthInput" class="col-sm-2 control-label">Width: </label>
-                <input type="text" class="form-control" id="gardenWidthInput" maxlength="25" name="widthForm" placeholder="{{gardenWidth}}" required/>
-                <p class="help-block"></p>
-            </div>
-
-            <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" class="toggle-checked" name="monitoredCheckbox"> <strong>Is monitored</strong>
-                        </label>
-                        <p class="help-block"></p>
-                    </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" class="toggle-checked" name="monitoredCheckbox"> <strong>Is monitored</strong>
+            </label>
+            <p class="help-block"></p>
+          </div>
                 </div>
             </div>
             <div class="form-group">
@@ -151,11 +149,5 @@
 
 
         </form>
-
-
-
     </div>
-
-
-
 </template>

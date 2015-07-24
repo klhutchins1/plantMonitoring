@@ -1,3 +1,5 @@
+//look into flow router as iron may become depricated??
+
 Router.route('/', function () {
   this.render('homeTemplate');
 }, {
@@ -29,11 +31,20 @@ Router.route('/plants', function () {
 });
 
 
-//gardens routers
+
+
+//gardens routers NOTE:Order Matters, Iron-route will match first
+
+Router.route('/gardens/create', function () {
+  this.render('createGardensTemplate');
+}, {
+  name: 'createGardensTemplate.show'
+});
+
 Router.route('/gardens/:gardenName', function () {
   this.render('gardenDetailsTemplate');
 }, {
-  name: 'gardenDetails.show',
+  name: 'gardenDetailsTemplate.show',
   data: function(){
     var gardensLinkVar = this.params.gardenName;
     return  GardensList.findOne({gardenName: gardensLinkVar});
@@ -43,7 +54,7 @@ Router.route('/gardens/:gardenName', function () {
 Router.route('/gardens/:gardenName/edit', function () {
   this.render('editGardenDetailsTemplate');
 }, {
-  name: 'editGardenDetails.show',
+  name: 'editGardenDetailsTemplate.show',
   data: function(){
     var gardensLinkVar = this.params.gardenName;
     return  GardensList.findOne({gardenName: gardensLinkVar});
@@ -52,11 +63,22 @@ Router.route('/gardens/:gardenName/edit', function () {
 
 
 
+
+
+
+
 //plants routers
+
+Router.route('/plants/create', function () {
+  this.render('createPlantsTemplate');
+}, {
+  name: 'createPlantsTemplate.show'
+});
+
 Router.route('/plants/:plantName', function () {
   this.render('plantDetailsTemplate');
 }, {
-  name: 'plantDetails.show',
+  name: 'plantDetailsTemplate.show',
   data: function(){
     var plantsLinkVar = this.params.plantName;
     return  PlantsList.findOne({plantName: plantsLinkVar});
@@ -66,12 +88,16 @@ Router.route('/plants/:plantName', function () {
 Router.route('/plants/:plantName/edit', function () {
   this.render('editPlantDetailsTemplate');
 }, {
-  name: 'editPlantDetails.show',
+  name: 'editPlantDetailsTemplate.show',
   data: function(){
     var plantsLinkVar = this.params.plantName;
     return  PlantsList.findOne({plantName: plantsLinkVar});
   }
 });
+
+
+
+
 
 //plant Type Routes
 Router.route('/plantType', function () {

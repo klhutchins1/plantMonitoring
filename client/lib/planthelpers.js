@@ -1,13 +1,18 @@
-Template.createPlants.helpers( {
+Template.createPlantsTemplate.helpers( {
 	plantsCount: function () {
 		return PlantsList.find().count();
 	}
 } );
 
+Template.plantListTemplate.helpers( {
+	plants: function() {
+		return PlantsList.find();
+	}
+} );
 
 
 //gets form info to create the plants and calls the addPlant method on the server to add data to DB
-Template.createPlants.events( {
+Template.createPlantsTemplate.events( {
 	"submit #new-plant": function (event) {
 		var plantName = event.target.plantNameForm.value;
     var length = event.target.plantLengthForm.value;
@@ -26,7 +31,7 @@ Template.createPlants.events( {
 	}
 } );
 
-Template.createPlants.rendered = function() {
+Template.createPlantsTemplate.rendered = function() {
     this.$('.collapsible').collapsible();
 };
 

@@ -8,14 +8,14 @@ using http://materializecss.com/
 
 try:
 
-Doesn't work - OnOff: https://www.npmjs.com/package/onoff
+Doesn't work on windows - OnOff: https://www.npmjs.com/package/onoff
   https://github.com/TooTallNate/node-gyp#installation
   https://www.microsoft.com/en-us/download/confirmation.aspx?id=44266
+  TM-OnOFF: https://www.npmjs.com/package/tm-onoff - epoll not found
 
 
-TM-OnOFF: https://www.npmjs.com/package/tm-onoff
-gpio: https://www.npmjs.com/package/gpio
-rpi-gpio: https://www.npmjs.com/package/rpi-gpio
+gpio: https://www.npmjs.com/package/gpio - Works but isn't maintained
+rpi-gpio: https://www.npmjs.com/package/rpi-gpio works!!
 pi-gpio: https://www.npmjs.com/package/pi-gpio
 r-pi-gpio: https://www.npmjs.com/package/r-pi-gpio
 https://www.npmjs.com/package/node-gpio
@@ -26,6 +26,7 @@ https://www.npmjs.com/package/ras-pi-gpio
 https://www.npmjs.com/package/gpio-stream
 https://www.npmjs.com/package/node-pi-gpio
 https://www.npmjs.com/package/pi-pins
+https://github.com/fgheorghe/jsGPIO
 
 
 pi4j: http://pi4j.com/example/control.html
@@ -91,5 +92,3 @@ sudo mkdir /home/pi/plantMonitoring
 git clone https://github.com/klhutchins1/plantMonitoring.git
 cd plantMonitoring/client/
 git remote add stylesheets https://github.com/DerMambo/stylesheets.git
-
-
