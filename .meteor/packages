@@ -9,10 +9,9 @@ autopublish
 joshowens:timezone-picker
 mrt:jqbootstrapvalidation
 pfafman:filesaver
-underscore
-aldeed:autoform
 mrt:moment
 meteorhacks:npm
 npm-container
 materialize:materialize
 iron:router
+maazalik:highcharts

@@ -21,17 +21,6 @@ Meteor.methods({
 		} else {
 			console.log("Units of Temp is not valid. Needs to be Celsius or Fahrenheit")
 		}
-	},
-
-
-	//Toggles and save checkbox values to DB
-	toggleChecked: function (settingId, setChecked) {
-		if (setChecked == true || setChecked == false) {
-			SettingsList.update(settingId, { $set: { isChecked: setChecked } } );
-		} else {
-			console.log("setChecked is not valid. Needs to be true or false")
-		}
-
 	}
 
 });

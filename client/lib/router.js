@@ -42,9 +42,9 @@ Router.route('/gardens/create', function () {
 });
 
 Router.route('/gardens/:gardenName', function () {
-  this.render('gardenDetailsTemplate');
+  this.render('gardenInfoTemplate');
 }, {
-  name: 'gardenDetailsTemplate.show',
+  name: 'gardenInfoTemplate.show',
   data: function(){
     var gardensLinkVar = this.params.gardenName;
     return  GardensList.findOne({gardenName: gardensLinkVar});
@@ -52,16 +52,24 @@ Router.route('/gardens/:gardenName', function () {
 });
 
 Router.route('/gardens/:gardenName/edit', function () {
-  this.render('editGardenDetailsTemplate');
+  this.render('editGardenDetailTemplate');
 }, {
-  name: 'editGardenDetailsTemplate.show',
+  name: 'editGardenDetailTemplate.show',
   data: function(){
     var gardensLinkVar = this.params.gardenName;
     return  GardensList.findOne({gardenName: gardensLinkVar});
   }
 });
 
-
+Router.route('/gardens/:gardenName/detail', function () {
+  this.render('gardenDetailTemplate');
+}, {
+  name: 'gardenDetailTemplate.show',
+  data: function(){
+    var gardensLinkVar = this.params.gardenName;
+    return  GardensList.findOne({gardenName: gardensLinkVar});
+  }
+});
 
 
 
@@ -108,4 +116,19 @@ Router.route('/plantType', function () {
     var plantsTypeLinkVar = this.params.plantTypeName;
     return  PlantTypeList.findOne({plantTypeName: plantsTypeLinkVar});
   }
+});
+
+
+
+Router.route('gardens/:gardenName/temperature', function () {
+  this.render('temperatureTemplate');
+}, {
+  name: 'temperatureTemplate.show'
+});
+
+
+Router.route('gardens/:gardenName/water', function () {
+  this.render('waterTemplate');
+}, {
+  name: 'waterTemplate.show'
 });

@@ -5,7 +5,7 @@
 </head>
 
 <body>
-    {{>menuTemplate}}
+  {{>menuTemplate}}
 </body>
 
 
@@ -23,32 +23,32 @@
 
 
 <template name="homeTemplate">
-    <div class="container">
-      {{>gardenShowTemplate}}
-      {{>plantShowTemplate}}
-    </div>
+  <div class="container">
+    {{>gardenShowTemplate}}
+    {{>plantShowTemplate}}
+  </div>
 </template>
 
 
 <template name="menuTemplate">
-    <nav>
-        <div class="nav-wrapper  teal accent-3">
-            <a class="brand-logo center" href="/">PlantMonitoring</a>
-            <a href="#" data-activates="mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-            <ul class="right hide-on-med-and-down">
-                {{>menuLinksTemplate}}
-            </ul>
-            <ul class="side-nav" id="mobile">
-                {{>menuLinksTemplate}}
-            </ul>
-        </div>
-    </nav>
+  <nav>
+    <div class="nav-wrapper  teal accent-3">
+      <a class="brand-logo center" href="/">PlantMonitoring</a>
+      <a href="#" data-activates="mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        {{>menuLinksTemplate}}
+      </ul>
+      <ul class="side-nav" id="mobile">
+        {{>menuLinksTemplate}}
+      </ul>
+    </div>
+  </nav>
 </template>
 
 
 <template name="menuLinksTemplate">
-    <li><a href="{{ pathFor 'gardens.show' }}">Gardens</a></li>
-    <li><a href="{{ pathFor 'plants.show' }}">Plants</a></li>
-    <li><a href="{{ pathFor 'plantType.show' }}">Plant Type</a></li>
-    <li><a href="{{ pathFor 'settings.show' }}"><i class="material-icons">settings</i></a></li>
+  <li><a href="{{ pathFor 'gardens.show' }}">Gardens</a></li>
+  <li><a href="{{ pathFor 'plants.show' }}">Plants</a></li>
+  <li><a href="{{ pathFor 'plantType.show' }}">Plant Type</a></li>
+  <li><a href="{{ pathFor 'settings.show' }}"><i class="material-icons">settings</i></a></li>
 </template>
