@@ -29,5 +29,5 @@ if (Meteor.npmRequire('os').arch() === 'arm'){
           console.log('The value is ' + value);
           console.log('This will only show up when Running on ARM');
       });
-  },
+  }
 }
