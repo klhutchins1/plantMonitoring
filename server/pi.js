@@ -27,6 +27,7 @@ if (Meteor.npmRequire('os').arch() === 'arm'){
   function readInput() {
       gpio.read(7, function(err, value) {
           console.log('The value is ' + value);
+          console.log('This will only show up when Running on ARM');
       });
   }
 }
