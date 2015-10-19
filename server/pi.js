@@ -16,6 +16,7 @@
 //  wpi= '';
 //}
 
+
 //adds GPIO for the raspi
 var gpio = Meteor.npmRequire('rpi-gpio');
 

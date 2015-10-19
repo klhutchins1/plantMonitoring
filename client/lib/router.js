@@ -1,10 +1,12 @@
 //look into flow router as iron may become depricated??
-
+//iron router version.. moving to flow
 Router.route('/', function () {
   this.render('homeTemplate');
 }, {
   name: 'home.show'
 });
+
+
 
 Router.route('/gettingStarted', function () {
   this.render('gettingStartedTemplate');

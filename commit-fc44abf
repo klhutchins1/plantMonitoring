@@ -1,0 +1,32 @@
+commit fc44abf5a4fec505e3896ba82a3966266633ce01
+Author: klhutchins <klhutchins@gmail.com>
+Date:   Mon Aug 17 16:46:29 2015 -0600
+
+    Revert "Minor update"
+    
+    This reverts commit a797422ab6a23010ea2c2904940299ed89de40e3.
+    
+    Conflicts:
+    	plantMonitor.html
+
+diff --git a/packages.json b/packages.json
+index 401696e..b1ec9bb 100644
+--- a/packages.json
++++ b/packages.json
+@@ -1,3 +1,3 @@
+ {
+-  "rpi-gpio": "0.6.0"
++  "rpi-gpio": "0.5.2"
+ }
+diff --git a/server/pi.js b/server/pi.js
+index a7e4c2a..e5a3d68 100644
+--- a/server/pi.js
++++ b/server/pi.js
+@@ -27,7 +27,6 @@ if (Meteor.npmRequire('os').arch() === 'arm'){
+   function readInput() {
+       gpio.read(7, function(err, value) {
+           console.log('The value is ' + value);
+-          console.log('This will only show up when Running on ARM');
+       });
+   }
+ }

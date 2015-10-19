@@ -4,14 +4,29 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-meteor-platform
 autopublish
 joshowens:timezone-picker
 mrt:jqbootstrapvalidation
 pfafman:filesaver
 mrt:moment
 meteorhacks:npm
-npm-container
-materialize:materialize
-iron:router
+materialize:materialize@=0.97.0
 maazalik:highcharts
+
+
+npm-container
+standard-minifiers
+meteor-base
+mobile-experience
+mongo
+blaze-html-templates
+session
+jquery
+tracker
+logging
+reload
+random
+ejson
+spacebars
+check
+iron:router
