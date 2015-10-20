@@ -1,34 +1,26 @@
-//var epoll1 = Meteor.npmRequire('epoll');
-//var onoff1 = Meteor.npmRequire('onoff');
-//var sp = Meteor.npmRequire('serialport');
-//var wpi = require('os').arch() === 'arm' ? require('wiring-pi') : {};
-//console.log(wpi);
-
-//add to packages.json
-//"wiring-pi": "2.0.0"
-
-//console.log(Meteor.npmRequire('os').arch() );
-
-//if (Meteor.npmRequire('os').arch() === 'arm'){
-//  wpi = require('wiring-pi');
-//  console.log(wpi);
-//}else {
-//  wpi= '';
-//}
-
-
 //adds GPIO for the raspi
-var gpio = Meteor.npmRequire('rpi-gpio');
 
 //Wont build unless system is running ARM CPU for rasPi
 if (Meteor.npmRequire('os').arch() === 'arm'){
-  gpio.setup(7, gpio.DIR_IN, readInput);
+  console.log('This will only show up when Running on ARM');
+  var GPIO = Meteor.npmRequire('onoff').Gpio,
+    led = new GPIO(18, 'out'),
+    button = new GPIO(17, 'in', 'both'),
+    thermometer = new GPIO(7,'in');
 
-  //reads from PIN  https://www.npmjs.com/package/rpi-gpio
-  function readInput() {
-      gpio.read(7, function(err, value) {
-          console.log('The value is ' + value);
-          console.log('This will only show up when Running on ARM');
-      });
+
+  function light(err, state) {
+    if(state==1){
+      led.writeSync(1);
+    } else{
+      led.writeSync(0);
+    }
   }
+
+button.watch(light);
+
+
+
+}else{
+  console.log('This will only show up when Running on WINDOWS');
 }

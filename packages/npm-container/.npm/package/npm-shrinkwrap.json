@@ -1,13 +1,18 @@
 {
   "dependencies": {
-    "rpi-gpio": {
-      "version": "0.5.2",
+    "onoff": {
+      "version": "1.0.3",
       "dependencies": {
-        "async": {
-          "version": "0.8.0"
-        },
-        "debug": {
-          "version": "0.8.1"
+        "epoll": {
+          "version": "0.1.16",
+          "dependencies": {
+            "bindings": {
+              "version": "1.2.1"
+            },
+            "nan": {
+              "version": "2.1.0"
+            }
+          }
         }
       }
     }

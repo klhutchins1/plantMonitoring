@@ -6,42 +6,23 @@ Manage your plants and gardens
 meteor
 using http://materializecss.com/
 
-try:
+Building onoff on windows needs:
+You need python 2.7; http://www.python.org/download/releases/2.7.3#download
+You need the c++ 2010; http://go.microsoft.com/?linkid=9709949
+If you have 64bits: http://www.microsoft.com/en-us/download/details.aspx?id=8279
+The compilers: http://www.microsoft.com/en-us/download/details.aspx?id=4422
+Visual Studio: http://go.microsoft.com/?linkid=9816758
 
-Doesn't work on windows - OnOff: https://www.npmjs.com/package/onoff
-  https://github.com/TooTallNate/node-gyp#installation
-  https://www.microsoft.com/en-us/download/confirmation.aspx?id=44266
-  TM-OnOFF: https://www.npmjs.com/package/tm-onoff - epoll not found
-
-
-gpio: https://www.npmjs.com/package/gpio - Works but isn't maintained
-rpi-gpio: https://www.npmjs.com/package/rpi-gpio works!!
-pi-gpio: https://www.npmjs.com/package/pi-gpio
-r-pi-gpio: https://www.npmjs.com/package/r-pi-gpio
-https://www.npmjs.com/package/node-gpio
-https://www.npmjs.com/package/adc-pi-gpio
-https://www.npmjs.com/package/fastgpio
-https://www.npmjs.com/package/native-gpio
-https://www.npmjs.com/package/ras-pi-gpio
-https://www.npmjs.com/package/gpio-stream
-https://www.npmjs.com/package/node-pi-gpio
-https://www.npmjs.com/package/pi-pins
-https://github.com/fgheorghe/jsGPIO
-
-
-pi4j: http://pi4j.com/example/control.html
-undoo: http://udoo.org/
-https://github.com/EnotionZ/GpiO
-http://www.espruino.com/
+Run:
+call "C:\Program Files\Microsoft SDKs\Windows\v7.1\bin\Setenv.cmd" /Release /x86
+Then Run Meteor, This will build onOff and run meteor successfully, OnOff won't work on windows, but will allow you to dev on Windows box.
+You can now run meteor regularly.
 
 
 #Description
-Doesn't do much at the moment. Just getting settings save to DB and geting used to Meteor
+Doesn't do much at the moment. creates buttons to show plants and gardens.
 
 Will eventually be working on RasPi, to monitor custom gardens and plants.
-
-
-Will monitor Plants and gardens.
 
 Could automate watering and light depending on time, or other variables ??????
 
