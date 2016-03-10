@@ -1,9 +1,9 @@
 //adds GPIO for the raspi
 Meteor.methods({
   toggleLED: function (){
-    var GPIO = Meteor.npmRequire('onoff').Gpio,
-      led = new GPIO(17, 'out'),
-      led.writeSync(led.readSync() ^ 1); // 1 = on, 0 = off :)
+    //var GPIO = Meteor.npmRequire('onoff').Gpio,
+      //led = new GPIO(17, 'out'),
+      //led.writeSync(led.readSync() ^ 1); // 1 = on, 0 = off :)
   }
 
 
