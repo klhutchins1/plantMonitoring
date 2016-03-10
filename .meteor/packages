@@ -10,7 +10,7 @@ mrt:jqbootstrapvalidation
 pfafman:filesaver
 mrt:moment
 meteorhacks:npm
-materialize:materialize@=0.97.0
+materialize:materialize
 maazalik:highcharts
 
 
