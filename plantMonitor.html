@@ -27,6 +27,7 @@
     {{>gardenShowTemplate}}
     {{>plantShowTemplate}}
     {{>readTemp}}
+    {{>toggleLED}}
   </div>
 </template>
 
@@ -51,6 +52,11 @@
   <li><a href="{{pathFor 'plants.show' }}">Plants</a></li>
   <li><a href="{{pathFor 'plantType.show' }}">Plant Type</a></li>
   <li><a href="{{pathFor 'settings.show' }}"><i class="material-icons">settings</i></a></li>
+</template>
+
+<template name="toggleLED">
+  <a class="waves-effect waves-light btn brown" id="ledButton">
+    <i class="material-icons left" id="ledlable"></i>LED ON OFF</a>
 </template>
 
 <template name="readTemp">
