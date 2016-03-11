@@ -3,16 +3,16 @@ Meteor.methods({
   toggleLED: function (){
     console.log('LED should change')
     if (Meteor.npmRequire('os').arch() === 'arm'){
-        var GPIO = Meteor.npmRequire('onoff').Gpio,
-        led = new GPIO(17, 'out'),
-
-        if(led.readSync() ^ 1){
-          led.writeSync(1);
-          console.log('LED ON')
-        } else{
-          led.writeSync(0);
-          console.log('LED OFF')
-        }
+        var GPIO = Meteor.npmRequire('onoff').Gpio;
+        led = new GPIO(17, 'out');
+        led.writeSync(led.readSync() ^ 1);
+        //if(led.readSync() == 1){
+          //led.writeSync(1);
+          //console.log('LED ON')
+        //} else{
+        //  led.writeSync(0);
+        console.log('LED On/OFF');
+        //}
 
 
         // Toggle the state of the LED on GPIO #14 every 200ms.
