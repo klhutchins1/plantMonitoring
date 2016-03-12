@@ -1,6 +1,9 @@
-Template.toggleLED.events( {
-	"click #ledButton": function () {
-    Meteor.call("toggleLED", this._id, ! this.isChecked );
+Template.LEDTemplate.events( {
+	"click #buttonLedON": function () {
+    Meteor.call("OnLED");
+	},
+	"click #buttonLedOff": function () {
+    Meteor.call("OffLED");
 	}
 
 } );
