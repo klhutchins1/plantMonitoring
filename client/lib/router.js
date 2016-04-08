@@ -32,7 +32,11 @@ Router.route('/plants', function () {
   name: 'plants.show'
 });
 
-
+Router.route('/temperature', function () {
+  this.render('temperatureTemplate');
+}, {
+  name: 'temperature.show'
+});
 
 
 //gardens routers NOTE:Order Matters, Iron-route will match first
