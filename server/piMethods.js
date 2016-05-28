@@ -8,7 +8,7 @@ Meteor.methods({
       led.write(1);
       console.log('LED is now ON');
     }else{
-      console.log('Windows does not have epoll so, LED cant change');
+      console.log('OS does not have epoll so, LED cant change');
     }
   },
   OffLED: function (){
@@ -18,7 +18,7 @@ Meteor.methods({
       led.write(0);
       console.log('LED is now OFF');
     }else{
-      console.log('Windows does not have epoll so, LED cant change');
+      console.log('OS does not have epoll so, LED cant change');
     }
   },
 
@@ -27,7 +27,7 @@ Meteor.methods({
       var GPIO = Meteor.npmRequire('onoff').Gpio;
       photometer = new GPIO(2, 'in');
     }else{
-      console.log('Windows does not have epoll so, LED cant change');
+      console.log('OS does not have epoll so, LED cant change');
     }
   },
 
@@ -42,7 +42,7 @@ Meteor.methods({
           Meteor.wrapAsync(Meteor.call('writeTemptoDB',value));
       }));
     }else{
-      console.log('Windows does not have epoll so, cant change do hardware');
+      console.log('OS does not have epoll so, cant change do hardware');
     }
   },
 
@@ -51,6 +51,8 @@ Meteor.methods({
     GardensLogList.insert( {
       dateTime: new Date(),
       celsius: temperature
+    }, function (err) {
+      console.log(err);
     });
   },
 
@@ -58,11 +60,12 @@ Meteor.methods({
   oneWireDevices: function (){
     if (Meteor.npmRequire('os').arch() === 'arm'){
       var ds18b20 = Meteor.npmRequire('ds18b20');
-      ds18b20.sensors(function(err, ids) {
-        console.log('errors:', err , '. List of 1-wire ids:' , ids);
-      });
+      ds18b20.sensors(Meteor.bindEnvironment(function(err, ids) {
+        console.log(ids);
+        return(ids);
+      }));
     }else{
-      console.log('Windows does not have epoll so, LED cant change');
+      console.log('OS does not have epoll so, LED cant change');
     }
   },
 

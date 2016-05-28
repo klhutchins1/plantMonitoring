@@ -1,0 +1,101 @@
+<template name="devicesTemplate">
+  <div class="container">
+    <div class="row">
+      <div class="card-panel blue-grey white-text darken-1 medium">
+        <h4>Monitor and Control Devices</h4>
+
+        <a class="waves-effect waves-light btn blue" id="addDevice" href="{{pathFor 'addDevices.show' }}">
+          <i class="material-icons left" id="addDevice"></i>Add Device</a>
+
+
+      </div>
+    </div>
+  </div>
+</template>
+
+
+<template name="readTempIDTemplate">
+  <a class="waves-effect waves-light btn brown" id="buttonforTempID">
+    <i class="material-icons left" id="tempID"></i>TempID: {{showTempID}}</a>
+</template>
+
+
+<template name="addDeviceTemplate">
+  <div class="container">
+    <div class="row">
+      <div class="card-panel blue-grey white-text darken-1 medium">
+        <h4>Add a new Device</h4>
+        <form id="deviceForm">
+
+          <div class="row">
+            <div class="input-field col s3" >
+              <select id="useSelect">
+                <option value="monitor">Monitor</option>
+                <option value="control">Control</option>
+              </select>
+              <label>Device Use:</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s3" >
+              <select id="typeSelect">
+                <option value="temperature" selected="temperature">Tempurature</option>
+                <option value="light">Light</option>
+                <option value="humidity">Humidity</option>
+              </select>
+              <label>Device Type:</label>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="input-field col s3" >
+              <select id="protocolSelect">
+
+                <option value="1Wire">1 Wire</option>
+                <option value="I2C">I2C</option>
+
+              </select>
+              <label>Device Protocol:</label>
+            </div>
+
+
+
+          </div>
+
+          
+          <div class="row">
+            <div class="input-field col s3" >
+              Get One-Wire Devices
+              {{>readTempIDTemplate}}
+              {{showTempID}}
+            </div>
+          </div>
+
+
+
+
+
+
+
+          <div class="row">
+            <div class="range-field col s3">
+              <label>Number of Pins:</label>
+              <input type="range" id="numberOfPins" min="1" max="4" />
+            </div>
+
+          </div>
+
+
+
+          <button class="btn waves-effect waves-light" type="submit" name="action" id="saveDevice">Save Device
+            <i class="material-icons">save</i>
+          </button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+</template>

@@ -1,5 +1,5 @@
 Meteor.methods({
-	addPlant: function (plantName, length, width, monitored, automated, water, airTemp, soilTemp, light, humidity, wind) {
+	addPlant: function (plantName, length, width, monitored, automated, water, airTemp, soilTemp, light, humidity, wind, garden) {
     //check for valid info using reactiveraven.github.io/jqBootstrapValidation/
     //still needs serverside validation
 
@@ -51,7 +51,8 @@ Meteor.methods({
       soilTemp: soilTemp,
       light: light,
       humidity: humidity,
-      wind: wind
+      wind: wind,
+			memberOfGarden: garden
 
 		} );
 	},

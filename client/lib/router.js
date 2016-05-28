@@ -20,6 +20,18 @@ Router.route('/settings', function () {
   name: 'settings.show'
 });
 
+Router.route('/settings/devices', function () {
+  this.render('devicesTemplate');
+}, {
+  name: 'devices.show'
+});
+
+Router.route('/settings/devices/add', function () {
+  this.render('addDeviceTemplate');
+}, {
+  name: 'addDevices.show'
+});
+
 Router.route('/gardens', function () {
   this.render('gardensTemplate');
 }, {
@@ -76,6 +88,7 @@ Router.route('/gardens/:gardenName/detail', function () {
     return  GardensList.findOne({gardenName: gardensLinkVar});
   }
 });
+
 
 
 

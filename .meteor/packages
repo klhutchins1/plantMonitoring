@@ -4,14 +4,16 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-autopublish
+#autopublish
 joshowens:timezone-picker
 mrt:jqbootstrapvalidation
 pfafman:filesaver
 mrt:moment
 meteorhacks:npm
 materialize:materialize
-maazalik:highcharts
+# old maazalik:highcharts
+percolate:synced-cron@=1.3.0
+chart:chart
 
 
 npm-container

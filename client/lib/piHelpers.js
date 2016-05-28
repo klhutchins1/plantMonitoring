@@ -1,3 +1,7 @@
+Meteor.subscribe('latestTemps', function(){
+  //console.log( "latestTemps data ready." );
+});
+
 Template.LEDTemplate.events( {
 	"click #buttonLedON": function () {
     Meteor.call("OnLED");
@@ -12,11 +16,32 @@ Template.LEDTemplate.events( {
 
 Template.readTempTemplate.events( {
 	"click #buttonfortemp": function () {
-    Meteor.call('readTemp', function(err, response){
-			Session.set('temperature', response);
-		});
-		//return this.Temperature ===  Temperature;
+    Meteor.call('readTemp');
 	},
 
 
+} );
+
+Template.readTempIDTemplate.events( {
+	"click #buttonforTempID": function () {
+    Meteor.call('oneWireDevices');
+	},
+
+
+} );
+
+Template.readTempIDTemplate.helpers( {
+	showTempID: function () {
+		 
+		 return Meteor.call('oneWireDevices');
+	}
+} );
+
+
+Template.readTempTemplate.helpers( {
+	showTemp: function () {
+		 //get latest Temp and return it in celsius
+		 var temp = GardensLogList.findOne();
+		 return temp && temp.celsius;
+	}
 } );

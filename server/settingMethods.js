@@ -1,26 +1,13 @@
 Meteor.methods({
 
-	//custom settings probably wont be used
-	createSettings: function (settingNameVar) {
-		//ensure setting name has value, serverSide check
-		if (settingNameVar == "") {
-			console.log("User did not enter a Setting Name, but tried to push data outside of regular checks");
-		} else {
-			SettingsList.insert( {
-				name: settingNameVar,
-        inputType: "checkbox",
-				isChecked: false
-			});
-		}
-	},
 
-	//sets the units for how temperature is displayed, ensuing that
-	setTempUnit: function (settingId, units) {
-		if (units == 'Celsius' || units == 'Fahrenheit') {
-			SettingsList.update(settingId, { $set:  { unitsForTemp: units } } );
+	saveSettings: function (temperatureUnits) {
+		if (temperatureUnits == "Celsius" || temperatureUnits == "Fahrenheit") {
+			SettingsList.update({inputType: "tempSelect"}, { $set:  { unitsForTemp: temperatureUnits } } );
 		} else {
 			console.log("Units of Temp is not valid. Needs to be Celsius or Fahrenheit")
 		}
-	}
+
+	},
 
 });
