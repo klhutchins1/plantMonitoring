@@ -18,6 +18,17 @@
           }
         }
       }
+    },
+    "rpi-dht-sensor": {
+      "version": "0.1.1",
+      "dependencies": {
+        "nan": {
+          "version": "2.3.5"
+        },
+        "bindings": {
+          "version": "1.2.1"
+        }
+      }
     }
   }
 }

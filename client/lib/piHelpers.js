@@ -32,7 +32,7 @@ Template.readTempIDTemplate.events( {
 
 Template.readTempIDTemplate.helpers( {
 	showTempID: function () {
-		 
+
 		 return Meteor.call('oneWireDevices');
 	}
 } );
@@ -44,4 +44,13 @@ Template.readTempTemplate.helpers( {
 		 var temp = GardensLogList.findOne();
 		 return temp && temp.celsius;
 	}
+} );
+
+
+Template.readDHT11Template.events( {
+	"click #buttonforDHT11": function () {
+    Meteor.call('readDHT11');
+	},
+
+
 } );

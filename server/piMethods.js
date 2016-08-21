@@ -56,6 +56,26 @@ Meteor.methods({
     });
   },
 
+  writeTempuraturetoDB: function(temperature){
+    console.log('temperature is:', temperature);
+    TempuratureLogList.insert( {
+      dateTime: new Date(),
+      celsius: temperature
+    }, function (err) {
+      console.log(err);
+    });
+  },
+
+  writeHumiditytoDB: function(temperature){
+    console.log('temperature is:', temperature);
+    HumidityLogList.insert( {
+      dateTime: new Date(),
+      percentHumidity: humidity
+    }, function (err) {
+      console.log(err);
+    });
+  },
+
 
   oneWireDevices: function (){
     if (Meteor.npmRequire('os').arch() === 'arm'){
@@ -69,6 +89,18 @@ Meteor.methods({
     }
   },
 
+//DHT11 device pin 22 header 15 reads humidity and tempurature
+readDHT11: function(){
+  if (Meteor.npmRequire('os').arch() === 'arm'){
+    var rpiDhtSensor = Meteor.npmRequire('rpi-dht-sensor');
+    var dht = new rpiDhtSensor.DHT11(22);
+    var readout = dht.read();
+    console.log('Temperature: ' + readout.temperature.toFixed(2) + 'C, ' + 'humidity: ' + readout.humidity.toFixed(2) + '%');
+
+  }else{
+    console.log('OS does not have epoll so, LED cant change');
+  }
+},
 
 
 

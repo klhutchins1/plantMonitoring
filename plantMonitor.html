@@ -29,6 +29,7 @@
     {{>readTempTemplate}}
     {{>LEDTemplate}}
     {{>readTempIDTemplate}}
+    {{>readDHT11Template}}
   </div>
 </template>
 
@@ -69,4 +70,10 @@
 <template name="readTempTemplate">
     <a class="waves-effect waves-light btn brown" id="buttonfortemp">
       <i class="material-icons left" id="temp"></i>Temp: {{showTemp}}</a>
+</template>
+
+
+<template name="readDHT11Template">
+    <a class="waves-effect waves-light btn brown" id="buttonforDHT11">
+      <i class="material-icons left" id="temp"></i>DHT11: {{showDHT11}}</a>
 </template>
