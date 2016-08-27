@@ -1,79 +1,53 @@
 <head>
   <title>Plant Monitor</title>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="icon" sizes="16x16 32x32" href="/favicon.ico">
 </head>
 
 <body>
-  {{>menuTemplate}}
+  <div class="ui container">
+    {{>menuTemplate}}
+  </div>
 </body>
 
 
-<template name="gettingStartedTemplate">
-	<div class="gettingStartedDiv">
-		<p>Thanks for Installing the PlantMonitor. With this you will be able to
-			monitor a single plant, a full garden, or even multiple gardens.  Tracking
-			info of the plants and its surrounding environments will depend on the
-			capabilities of your equipment.
-			Please create a new Garden, Then we can start to add plants to your garden.
-		</p>
-		<button> Skip </button>
-	</div>
-</template>
+
 
 
 <template name="homeTemplate">
-  <div class="container">
-    {{>gardenShowTemplate}}
-    {{>plantShowTemplate}}
-    {{>readTempTemplate}}
-    {{>LEDTemplate}}
-    {{>readTempIDTemplate}}
-    {{>readDHT11Template}}
+    <div class="main ui light green container">
+        <div class="ui segment">
+        {{>gardenShowTemplate}}
+        {{>plantShowTemplate}}
+      </div>
+    </div>
+</template>
+
+
+
+<template name="footerTemplate">
+  <div class="ui footer segment">
+    <div class="ui center aligned container">
+      <div class="ui stackable grid">
+        Pant Monitoring for Rasputain
+      </div>
+    </div>
   </div>
 </template>
 
 
 <template name="menuTemplate">
-  <nav>
-    <div class="nav-wrapper  teal accent-3">
-      <a class="brand-logo center" href="/">PlantMonitoring</a>
-      <a href="#" data-activates="mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-        {{>menuLinksTemplate}}
-      </ul>
-      <ul class="side-nav" id="mobile">
-        {{>menuLinksTemplate}}
-      </ul>
+
+    <div class="ui large menu">
+      <a class="header item" href="/">PlantMonitoring</a>
+      <div class="right menu">
+        <a class="item" href="{{pathFor 'gardens.show' }}">Gardens</a>
+        <a class="item" href="{{pathFor 'plants.show' }}">Plants</a>
+        <a class="item" href="{{pathFor 'plantType.show' }}">Plant Type</a>
+        <a class="item" href="{{pathFor 'devices.show' }}">Devices</a>
+        <a class="item" href="{{pathFor 'settings.show' }}"><i class="setting icon"></i></a>
+      </div>
+
     </div>
-  </nav>
-</template>
+    <div class="ui hidden divider"></div>
 
-<template name="menuLinksTemplate">
-  <li><a href="{{pathFor 'gardens.show' }}">Gardens</a></li>
-  <li><a href="{{pathFor 'plants.show' }}">Plants</a></li>
-  <li><a href="{{pathFor 'plantType.show' }}">Plant Type</a></li>
-  <li><a href="{{pathFor 'devices.show' }}">Devices</a></li>
-  <li><a href="{{pathFor 'settings.show' }}"><i class="material-icons">settings</i></a></li>
-</template>
-
-<template name="LEDTemplate">
-
-    <a class="waves-effect waves-light btn brown" id="buttonLedON">
-      <i class="material-icons left" id="ledON"></i>LED ON </a>
-
-    <a class="waves-effect waves-light btn brown" id="buttonLedOff">
-      <i class="material-icons left" id="ledOff"></i>LEDOFF </a>
-
-</template>
-
-<template name="readTempTemplate">
-    <a class="waves-effect waves-light btn brown" id="buttonfortemp">
-      <i class="material-icons left" id="temp"></i>Temp: {{showTemp}}</a>
-</template>
-
-
-<template name="readDHT11Template">
-    <a class="waves-effect waves-light btn brown" id="buttonforDHT11">
-      <i class="material-icons left" id="temp"></i>DHT11: {{showDHT11}}</a>
 </template>

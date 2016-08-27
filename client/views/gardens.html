@@ -1,142 +1,152 @@
 <template name="gardensTemplate">
-  <div class="container">
-    {{>gardenShowTemplate}}
+  <div class="main ui container">
+    <div class="ui segment">
+      {{>gardenShowTemplate}}
+    </div>
   </div>
 </template>
 <template name="gardenShowTemplate">
-  <div class="row">
-    <div class="card-panel blue-grey white-text darken-1 medium">
-      <h4>Gardens</h4>
-      {{>gardenListTemplate}}
-      <a class="btn-floating btn-medium waves-effect waves-light red right" id="addGarden"
-      href="{{pathFor 'createGardensTemplate.show' }}"><i class="material-icons">add</i></a>
-    </div>
+  <h2 class="ui dividing header">Gardens</h2>
+  <div class="ui five cards">
+    {{>gardenListTemplate}}
   </div>
+  <p></p>
+  <a class="right circular red ui icon button" id="addGarden" data-content="Add a Garden" href="{{pathFor 'createGardensTemplate.show' }}"><i class="add icon"></i></a>
 </template>
 <template name="gardenListTemplate">
   {{#each gardens}}
-    <a class="waves-effect waves-light btn brown" href="{{pathFor 'gardenInfoTemplate.show' }} ">
-      <i class="material-icons left"></i>{{gardenName}}</a>
+    <div class="card">
+      <div class="content">
+        <i class="right floated brown grid layout icon"></i>
+        <a class="header" href="{{pathFor 'gardenInfoTemplate.show' }} ">{{gardenName}}</a>
+        <div class="meta">
+          <span class="tempurature">55&deg;F 21&deg;C</span>
+        </div>
+        <div class="description">
+           New York.
+        </div>
+      </div>
+      <div class="extra content">
+        <a>
+          <i class="user icon"></i>
+          22
+        </a>
+      </div>
+    </div>
   {{/each}}
 </template>
 <template name="createGardensTemplate">
-  <div class="container">
-    <div class="row">
-      <div class="card-panel blue-grey white-text darken-1 medium">
-        <h4>Create a new Garden</h4>
-        <form id="new-garden">
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="gardenNameForm" type="text" length="25" class="validate" required>
-              <label for="gardenNameForm">Garden Name:</label>
+  <div class="main ui container">
+    <div class="ui segment">
+      <h2 class="ui dividing header">Create a new Garden</h2>
+        <form class="ui form" id="new-garden">
+          <div class="inline required field">
+            <label>Garden Name:</label>
+            <input id="gardenNameForm" type="text">
+          </div>
+          <div class="inline field">
+            <label>Length: </label>
+            <input id="gardenLengthForm" type="text">
+          </div>
+          <div class="inline field">
+            <label>Width: </label>
+            <input id="gardenWidthForm" type="text">
+          </div>
+          <div class="inline field">
+            <div class="ui checkbox">
+              <label>Monitor Garden</label>
+              <input type="checkbox" tabindex="0" id="gardenMonitoredCheckbox"  />
             </div>
           </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="gardenLengthForm" type="text" class="validate" required>
-              <label for="gardenLengthForm">Length: </label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="gardenWidthForm" type="text" class="validate" required>
-              <label for="gardenWidthForm">Width: </label>
+          <div class="inline field">
+            <div class="ui checkbox">
+              <label>Automate Garden</label>
+              <input type="checkbox" tabindex="0" id="gardenAutomatedCheckbox"  />
             </div>
           </div>
           <p>
-            <input type="checkbox" id="gardenMonitoredCheckbox" />
-            <label for="gardenMonitoredCheckbox">Is Monitored</label>
+            <button class="ui button" id="saveGarden" type="submit" tabindex="0"><i class="save icon"></i> Save</button>
           </p>
-          <p>
-            <input type="checkbox" id="gardenAutomatedCheckbox" />
-            <label for="gardenAutomatedCheckbox">Is Automated</label>
-          </p>
-          <p>
-            <button class="btn waves-effect waves-light" type="submit" name="action" id="saveGarden">Save Garden
-              <i class="material-icons">save</i>
-            </button>
-          </p>
-        </form>
-      </div>
+      </form>
     </div>
   </div>
 </template>
+
 <template name="gardenInfoTemplate">
-  <div class="container">
-    <div class="row">
-      <div class="card-panel blue-grey white-text darken-1 medium">
-        <h4>{{gardenName}}</h4>
-        <a class="waves-effect waves-light btn brown" href="{{pathFor 'temperatureTemplate.show' }}  ">
-          <i class="material-icons left"></i>Tempurature</a>
-        <a class="waves-effect waves-light btn brown" href="{{pathFor 'waterTemplate.show' }}  ">
-          <i class="material-icons left"></i>Water</a>
+  <div class="main ui container">
+    <div class="ui segment">
+      <h2 class="ui dividing header">{{gardenName}}</h2>
+      <a class="waves-effect waves-light btn brown" href="{{pathFor 'temperatureTemplate.show' }}  ">
+        <i class="material-icons left"></i>Tempurature</a>
+      <a class="waves-effect waves-light btn brown" href="{{pathFor 'waterTemplate.show' }}  ">
+        <i class="material-icons left"></i>Water</a>
 
-        {{>temperatureTemplate}}
+      {{>temperatureTemplate}}
 
-        <a class="waves-effect waves-light btn brown" href="{{pathFor 'editGardenDetailTemplate.show' }}  ">
-          <i class="material-icons left"></i>Edit {{gardenName}}</a>
-        <a class="waves-effect waves-light btn brown" href="{{pathFor 'gardenDetailTemplate.show' }}  ">
-          <i class="material-icons left"></i>Show Details</a>
-      </div>
+      <a class="waves-effect waves-light btn brown" href="{{pathFor 'editGardenDetailTemplate.show' }}  ">
+        <i class="material-icons left"></i>Edit {{gardenName}}</a>
+      <a class="waves-effect waves-light btn brown" href="{{pathFor 'gardenDetailTemplate.show' }}  ">
+        <i class="material-icons left"></i>Show Details</a>
     </div>
   </div>
+
 </template>
 <template name="gardenDetailTemplate">
-  <div class="container">
-    <div class="row">
-      <div class="card-panel blue-grey white-text darken-1 medium">
-        <h4>{{gardenName}}</h4>
-        <p>Created at: {{formatTime createdAt}} </p>
-        <p>Last edited at: {{formatTime editedAt}} </p>
-        <p>Length: {{gardenLength}}</p>
-        <p>Width: {{gardenWidth}}</p>
-      </div>
+  <div class="main ui container">
+    <div class="ui segment">
+      <h2 class="ui dividing header">{{gardenName}}</h2>
+      <p>Created at: {{formatTime createdAt}} </p>
+      <p>Last edited at: {{formatTime editedAt}} </p>
+      <p>Length: {{gardenLength}}</p>
+      <p>Width: {{gardenWidth}}</p>
     </div>
   </div>
+
 </template>
 
 
 <template name="editGardenDetailTemplate">
-  <div class="container">
-    <div class="row">
-      <div class="card-panel blue-grey white-text darken-1 medium">
-        <h4>Edit {{gardenName}}</h4>
-        <form id="saveGarden">
-          <div class="row">
-            <div class="input-field col s12">
-              <input value="{{gardenName}}" id="gardenNameForm" type="text" length="25" class="validate">
-              <label class="active" for="gardenNameForm">Garden Name:</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="gardenLengthForm" type="text" class="validate" value="{{gardenLength}}">
-              <label class="active" for="gardenLengthForm">Length: </label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="gardenWidthForm" type="text" class="validate" value="{{gardenWidth}}">
-              <label class="active" for="gardenWidthForm">Width: </label>
-            </div>
-          </div>
+  <div class="main ui container">
+    <div class="ui segment">
+      <h2 class="ui dividing header">Edit {{gardenName}}</h2>
 
-          <p>
-            <input type="checkbox" class="toggle-checked" id="gardenMonitoredCheckbox" />
-            <label for="gardenMonitoredCheckbox">Is Monitored</label>
-          </p>
-          <p>
-            <input type="checkbox" id="gardenAutomatedCheckbox" />
-            <label for="gardenAutomatedCheckbox">Is Automated</label>
-          </p>
-          <p>
-            <button class="btn waves-effect waves-light" type="submit" name="action" id="saveGarden">Save Garden
-              <i class="material-icons">save</i>
-            </button>
-            <a class="waves-effect waves-light btn" id="deleteGarden">Delete Garden <i class="material-icons">delete</i></a>
-          </p>
-        </form>
+      <form id="saveGarden">
+        <div class="row">
+          <div class="input-field col s12">
+            <input value="{{gardenName}}" id="gardenNameForm" type="text" length="25" class="validate">
+            <label class="active" for="gardenNameForm">Garden Name:</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="gardenLengthForm" type="text" class="validate" value="{{gardenLength}}">
+            <label class="active" for="gardenLengthForm">Length: </label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="gardenWidthForm" type="text" class="validate" value="{{gardenWidth}}">
+            <label class="active" for="gardenWidthForm">Width: </label>
+          </div>
+        </div>
+
+        <p>
+          <input type="checkbox" class="toggle-checked" id="gardenMonitoredCheckbox" />
+          <label for="gardenMonitoredCheckbox">Is Monitored</label>
+        </p>
+        <p>
+          <input type="checkbox" id="gardenAutomatedCheckbox" />
+          <label for="gardenAutomatedCheckbox">Is Automated</label>
+        </p>
+
+        <p>
+          <button class="ui button" id="saveGarden" type="submit" tabindex="0"><i class="save icon"></i> Save Garden</button>
+          <button class="ui button" id="deleteGarden" type="submit" tabindex="0"><i class="remove icon"></i> Delete Garden</button>
+        </p>
+
+
+      </form>
     </div>
   </div>
-</div>
+
 </template>

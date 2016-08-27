@@ -1,74 +1,77 @@
 <template name="devicesTemplate">
-  <div class="container">
-    <div class="row">
-      <div class="card-panel blue-grey white-text darken-1 medium">
-        <h4>Monitor and Control Devices</h4>
-
-        <a class="waves-effect waves-light btn blue" id="addDevice" href="{{pathFor 'addDevices.show' }}">
-          <i class="material-icons left" id="addDevice"></i>Add Device</a>
-
-
-      </div>
+  <div class="main ui container">
+    <div class="ui segment">
+      <h2 class="ui dividing header">Monitor and Control Devices</h2>
+      <p></p>
+      <a class="right circular red ui icon button" id="addDevice" href="{{pathFor 'addDevices.show' }}"><i class="add icon"></i>Add Device</a>
     </div>
+  </div>
+  <div class="ui section divider"></div>
+  {{>hardwareActivateTemplate}}
+</template>
+<template name="hardwareActivateTemplate">
+  <div class="ui container">
+    <button class="ui button" id="buttonLedON" tabindex="0">LED ON</button>
+    <button class="ui button" id="buttonLedOff" tabindex="0">LED OFF</button>
+    <button class="ui button" id="buttonfortemp" tabindex="0">Temp: {{showTemp}}</button>
+    <button class="ui button" id="buttonforDHT11" tabindex="0">DHT11: {{showDHT11}}</button>
   </div>
 </template>
 
 
 <template name="readTempIDTemplate">
-  <a class="waves-effect waves-light btn brown" id="buttonforTempID">
-    <i class="material-icons left" id="tempID"></i>TempID: {{showTempID}}</a>
+  <p>
+    <button class="ui button" id="buttonforTempID" type="submit" tabindex="0"><i class="save icon"></i> TempID: {{showTempID}}</button>
+  </p>
 </template>
 
 
 <template name="addDeviceTemplate">
-  <div class="container">
-    <div class="row">
-      <div class="card-panel blue-grey white-text darken-1 medium">
-        <h4>Add a new Device</h4>
-        <form id="deviceForm">
-
-          <div class="row">
-            <div class="input-field col s6">
-              <input id="deviceName" type="text" length="25" class="validate" required>
-              <label>Device Label:</label>
+  <div class="main ui container">
+    <div class="ui segment">
+      <h2 class="ui dividing header">Add a new Device</h2>
+      <form class="ui form" id="deviceForm">
+        <div class="required field">
+          <label>Device Label:</label>
+          <input id="deviceName" type="text">
+        </div>
+        <div class="field">
+          <label>Device Use:</label>
+          <div class="ui selection dropdown">
+            <input type="hidden" name="useSelect">
+            <i class="dropdown icon"></i>
+            <div class="default text">Type</div>
+            <div class="menu">
+              <div class="item" data-value="monitor">Monitor</div>
+              <div class="item" data-value="control">Control</div>
             </div>
           </div>
-
-          <div class="row">
-            <div class="input-field col s3" >
-              <select id="useSelect">
-                <option value="monitor">Monitor</option>
-                <option value="control">Control</option>
-              </select>
-              <label>Device Use:</label>
+        </div>
+        <div class="field">
+          <label>Device Type:</label>
+          <div class="ui selection dropdown">
+            <input type="hidden" name="typeSelect">
+            <i class="dropdown icon"></i>
+            <div class="default text">Device Type:</div>
+            <div class="menu">
+              <div class="item" data-value="temperature">Tempurature</div>
+              <div class="item" data-value="light">Light</div>
+              <div class="item" data-value="humidity">Humidity</div>
             </div>
           </div>
-
-          <div class="row">
-            <div class="input-field col s3" >
-              <select id="typeSelect">
-                <option value="temperature" selected="temperature">Tempurature</option>
-                <option value="light">Light</option>
-                <option value="humidity">Humidity</option>
-              </select>
-              <label>Device Type:</label>
+        </div>
+        <div class="field">
+          <label>Device Protocol:</label>
+          <div class="ui selection dropdown">
+            <input type="hidden" name="protocolSelect">
+            <i class="dropdown icon"></i>
+            <div class="default text">Protocol Type:</div>
+            <div class="menu">
+              <div class="item" data-value="1Wire">1 Wire</div>
+              <div class="item" data-value="I2C">I2C</div>
             </div>
           </div>
-
-          <div class="row">
-            <div class="input-field col s3" >
-              <select id="protocolSelect">
-
-                <option value="1Wire">1 Wire</option>
-                <option value="I2C">I2C</option>
-
-              </select>
-              <label>Device Protocol:</label>
-            </div>
-
-
-
-          </div>
+        </div>
 
 
           <div class="row">
@@ -80,11 +83,6 @@
           </div>
 
 
-
-
-
-
-
           <div class="row">
             <div class="range-field col s3">
               <label>Number of Pins:</label>
@@ -93,16 +91,15 @@
 
           </div>
 
+          <p>
+            <button class="ui button" id="saveDevice" type="submit" tabindex="0"><i class="save icon"></i>Save Device</button>
+          </p>
 
-
-          <button class="btn waves-effect waves-light" type="submit" name="action" id="saveDevice">Save Device
-            <i class="material-icons">save</i>
-          </button>
 
         </form>
       </div>
     </div>
-  </div>
+
 
 
 </template>

@@ -1,63 +1,52 @@
 <template name="plantTypeTemplate">
-  <div class="container">
-    <h2>Plant Taxonomy</h2>
+  <div class="main ui container">
+    <div class="ui segment">
+      <h2 class="ui dividing header">Plant Taxonomy</h2>
+      <form class="ui form" id="new-plant-Type">
+        <div class="required field">
+          <label>Plant Common Name:</label>
+          <input id="plantTypeNameForm" type="text">
+        </div>
+        <div class="field">
+          <label>Binomial name:</label>
+          <input id="plantTypeBinomialNameForm" type="text">
+        </div>
+        <div class="field">
+          <label>Plant Kingdom:</label>
+          <input id="plantTypeKingdomForm" type="text">
+        </div>
+        <div class="field">
+          <label>Plant Order:</label>
+          <input id="plantTypeOrderForm" type="text">
+        </div>
+        <div class="field">
+          <label>Plant Family:</label>
+          <input id="plantTypeFamilyForm" type="text">
+        </div>
+        <div class="field">
+          <label>Plant Genus:</label>
+          <input id="plantTypeGenusForm" type="text">
+        </div>
+        <div class="field">
+          <label>Plant Species:</label>
+          <input id="plantTypeSpeciesForm" type="text">
+        </div>
+        <div class="field">
+          <label>Plant Variety:</label>
+          <input id="plantTypeVarietyForm" type="text">
+        </div>
 
-    <form id="new-plant-Type" action="#">
-      <div class="row">
-          <div class="input-field col s6">
-              <input id="plantTypeNameForm" type="text" class="validate" required>
-              <label for="plantTypeNameForm">Plant Common Name</label>
-          </div>
-          <div class="input-field col s6">
-              <input id="plantTypeBinomialNameForm" type="text" class="validate">
-              <label for="plantTypeBinomialNameForm">Binomial name</label>
-          </div>
-          <div class="input-field col s6">
-              <input id="plantTypeKingdomForm" type="text" class="validate">
-              <label for="plantTypeKingdomForm">Plant Kingdom</label>
-          </div>
-          <div class="input-field col s6">
-              <input id="plantTypeOrderForm" type="text" class="validate">
-              <label for="plantTypeOrderForm">Plant Order</label>
-          </div>
-          <div class="input-field col s6">
-              <input id="plantTypeFamilyForm" type="text" class="validate">
-              <label for="plantTypeFamilyForm">Plant Family</label>
-          </div>
-          <div class="input-field col s6">
-              <input id="plantTypeGenusForm" type="text" class="validate">
-              <label for="plantTypeGenusForm">Plant Genus</label>
-          </div>
-          <div class="input-field col s6">
-              <input id="plantTypeSpeciesForm" type="text" class="validate">
-              <label for="plantTypeSpeciesForm">Plant Species</label>
-          </div>
-          <div class="input-field col s6">
-              <input id="plantTypeVarietyForm" type="text" class="validate">
-              <label for="plantTypeVarietyForm">Plant Variety</label>
-          </div>
+        <div class="ui icon button">
+          <label>Plant Image:</label>
+          <input type="file" id="plantImageForm" >
+        </div>
 
-          <div class="file-field input-field col s6">
-            <input id="plantImageForm" type="text" class="file-path validate" />
-            <div class="btn">
-              <span>Plant Image</span>
-              <input type="file" />
-            </div>
-          </div>
-
-
-
-
-      </div>
-      <button class="btn waves-effect waves-light" type="submit" name="action" id="savePlantType">Save Plant Type
-        <i class="material-icons">save</i>
-      </button>
-    </form>
-
-    <button class="btn waves-effect waves-light" type="submit" name="action" id="savePlantType">Load Plant Type
-      <i class="material-icons">input</i>
-    </button>
-
+        <p>
+          <button class="ui button" id="savePlantType" type="submit" tabindex="0"><i class="save icon"></i> Save Plant Type</button>
+          <button class="ui button" id="savePlantType" type="submit" tabindex="0"><i class="upload icon"></i> Load Plant Type</button>
+        </p>
+      </form>
+    </div>
   </div>
 
 </template>

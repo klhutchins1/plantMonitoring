@@ -10,11 +10,9 @@ mrt:jqbootstrapvalidation
 pfafman:filesaver
 mrt:moment
 #meteorhacks:npm
-materialize:materialize
+#materialize:materialize
 percolate:synced-cron@=1.3.0
 chart:chart
-
-
 standard-minifiers-js
 meteor-base
 mobile-experience
@@ -31,6 +29,7 @@ spacebars
 check
 iron:router
 es5-shim
+ecmascript
 semantic:ui
 juliancwirko:postcss
 less

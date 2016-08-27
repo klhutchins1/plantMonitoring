@@ -1,49 +1,35 @@
 <template name="settingsTemplate">
-  <div class="container">
-    <div class="row">
-      <div class="card-panel blue-grey white-text darken-1 medium">
-        <h4>Settings</h4>
+  <div class="main ui container">
+    <div class="ui segment">
+      <h2 class="ui dividing header">Settings</h2>
         <a href="{{pathFor 'devices.show' }}">Devices</a>
-        <form id="settingsForm">
-          <div class="row">
-
+        <form class="ui form" id="settingsForm">
+          <div class="inline required field">
             {{>temperatureUnitSelectTemplate}}
           </div>
-
-
           <p>
-            <button class="btn waves-effect waves-light" type="submit" name="action" id="saveSettings">Save Settings
-              <i class="material-icons">save</i>
-            </button>
-
-            <button class="btn waves-effect waves-light" type="submit" name="action" id="backupSettings">Backup Data
-              <i class="material-icons">import_export</i>
-            </button>
-
-
+            <button class="ui button" id="saveSettings" type="submit" tabindex="0"><i class="save icon"></i> Save Settings</button>
+            <button class="ui button" id="backupSettings" type="submit" tabindex="0"><i class="download icon"></i> Backup Data</button>
           </p>
         </form>
       </div>
     </div>
-  </div>
 </template>
 
 <template name="temperatureUnitSelectTemplate">
-
-  <div class="input-field col s3" >
+  <div class="inline field">
+    <label>Tempurature Units:</label>
     <select id="tempUnitSelect">
       {{#if tempUnitIs "Fahrenheit"}}
         <option value="Fahrenheit" selected="selected">Fahrenheit</option>
         <option value="Celsius">Celsius</option>
       {{else}}
         {{#if tempUnitIs "Celsius"}}
-          <option value="Celsius" selected="selected">Celsius</option>
           <option value="Fahrenheit">Fahrenheit</option>
+          <option value="Celsius" selected="selected">Celsius</option>
         {{/if}}
       {{/if}}
     </select>
-    <label>Tempurature Units:</label>
     {{tempUnitIs}}
   </div>
-
 </template>
