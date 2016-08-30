@@ -1,0 +1,47 @@
+{
+  "name": "plantMonitoring",
+  "private": true,
+  "version": "0.0.5",
+  "description": "monitor your plants with raspberry pi and meteor",
+  "author": "KH",
+  "scripts": {
+    "start": "meteor run",
+    "lint": "eslint .",
+    "pretest": "npm run lint --silent"
+  },
+  "dependencies": {
+    "onoff": "1.0.3",
+    "ds18b20": "0.1.0",
+    "rpi-dht-sensor": "0.1.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.3.1",
+    "eslint-plugin-meteor": "^4.0.0"
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {
+        "browsers": [
+          "last 2 versions"
+        ]
+      }
+    }
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "allowImportExportEverywhere": true
+    },
+    "plugins": [
+      "meteor"
+    ],
+    "extends": [
+      "airbnb",
+      "plugin:meteor/recommended"
+    ],
+    "settings": {
+      "import/resolver": "meteor"
+    },
+    "rules": {}
+  }
+}
