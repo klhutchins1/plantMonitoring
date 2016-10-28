@@ -1,65 +1,51 @@
 Meteor.methods( {
-	addGarden: function (gardenName, length, width, monitored, automated) {
+	saveGarden: function (isNew, gardenName, length, width, monitored, automated, gardenId) {
 		//check for valid info using reactiveraven.github.io/jqBootstrapValidation/ for htmp
     //still needs serverside validation
-    if (gardenName.length >= 25) {
-     console.log("GardenName is too long at " + gardenName.length);
-    }
-    if (length > 20 || length < 1) {
+    if (gardenName.length >= 25 || gardenName.length < 0) {
+     console.log("GardenName is too long with " + gardenName.length + " characters");
+		 return false;
+	  } else if ((length > 20 || length < 1) && (length != '')) {
       console.log("GardenLength is out of range at " + length);
-    }
-    if (width > 20 || length < 1) {
+			return false;
+    } else if ((width > 20 || length < 1) && (length != '')) {
       console.log("gardenWidth is out of range at " + width);
-    }
-    if (monitored != true || monitored != false) {
+			return false;
+    } else if (monitored != true && monitored != false) {
       console.log("Gardenmonitored is out of range at " + monitored);
-    }
-    if (automated != true || automated !=false) {
+			return false;
+    } else if  (automated != true && automated != false) {
       console.log("Gardenautomated is out of range at " + automated);
-    }
-    //need to move this into the if/else cause right now it's putting the data in the no matter the above chekc
-    GardensList.insert( {
-			gardenName: gardenName,
-			createdAt: new Date(),
-      editedAt: new Date(),
-      gardenLength: length,
-      gardenWidth: width,
-      isMonitored: monitored,
-      isAutomatied: automated
+			return false;
+    }else if (isNew) {
+			console.log("GardensList inserted");
+			//creates a new garden
+	    GardensList.insert( {
+				gardenName: gardenName,
+				createdAt: new Date(),
+	      editedAt: new Date(),
+	      gardenLength: length,
+	      gardenWidth: width,
+	      isMonitored: monitored,
+	      isAutomatied: automated
+			} );
 
-		} );
-
+		} else if (! isNew ) {
+			console.log("GardensList updated");
+			//updating existing garden
+			GardensList.update(gardenId, { $set:  {
+				gardenName: gardenName,
+				editedAt: new Date(),
+				gardenLength: length,
+				gardenWidth: width,
+				isMonitored: monitored,
+				isAutomatied: automated
+				}
+			} );
+		}
 	},
 
-	saveGarden: function (gardenName, length, width, monitored, automated, gardenId) {
-		//check for valid info using reactiveraven.github.io/jqBootstrapValidation/ for htmp
-    //still needs serverside validation
-    if (gardenName.length >= 25) {
-     console.log("GardenName is too long at " + gardenName.length);
-    }
-    if (length > 20 || length < 1) {
-      console.log("GardenLength is out of range at " + length);
-    }
-    if (width > 20 || length < 1) {
-      console.log("gardenWidth is out of range at " + width);
-    }
-    if (monitored != true || monitored != false) {
-      console.log("Gardenmonitored is out of range at " + monitored);
-    }
-    if (automated != true || automated !=false) {
-      console.log("Gardenautomated is out of range at " + automated);
-    }
-    //need to move this into the if/else cause right now it's putting the data in the no matter the above chekc
-		GardensList.update(gardenId, { $set:  {
-			gardenName: gardenName,
-			editedAt: new Date(),
-		  gardenLength: length,
-		  gardenWidth: width,
-		  isMonitored: monitored,
-		  isAutomatied: automated}
-		} );
 
-	},
 
 
   removeGarden: function (garden){

@@ -2,7 +2,7 @@ Meteor.subscribe('gardens', function(){
   //console.log( "gardens data ready." );
 });
 
-Template.createGardensTemplate.helpers( {
+Template.createGardenTemplate.helpers( {
 	gardensCount: function () {
 		return GardensList.find().count();
 	}
@@ -13,3 +13,14 @@ Template.gardenListTemplate.helpers( {
 		return GardensList.find();
 	}
 } );
+
+
+
+
+Template.createGardenTemplate.rendered = function() {
+	this.$('.ui.checkbox').checkbox();
+};
+
+Template.editGardenDetailsTemplate.rendered = function() {
+	this.$('.ui.checkbox').checkbox();
+};

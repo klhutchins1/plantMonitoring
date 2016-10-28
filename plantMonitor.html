@@ -9,10 +9,6 @@
   </div>
 </body>
 
-
-
-
-
 <template name="homeTemplate">
     <div class="main ui light green container">
         <div class="ui segment">
@@ -21,8 +17,6 @@
       </div>
     </div>
 </template>
-
-
 
 <template name="footerTemplate">
   <div class="ui footer segment">
@@ -34,20 +28,16 @@
   </div>
 </template>
 
-
 <template name="menuTemplate">
-
     <div class="ui large menu">
       <a class="header item" href="/">PlantMonitoring</a>
       <div class="right menu">
         <a class="item" href="{{pathFor 'gardens.show' }}">Gardens</a>
         <a class="item" href="{{pathFor 'plants.show' }}">Plants</a>
-        <a class="item" href="{{pathFor 'plantType.show' }}">Plant Type</a>
+        <a class="item" href="{{pathFor 'taxonomy.show' }}">Taxonomy</a>
         <a class="item" href="{{pathFor 'devices.show' }}">Devices</a>
-        <a class="item" href="{{pathFor 'settings.show' }}"><i class="setting icon"></i></a>
+        <a class="item" href="{{pathFor 'settings.show' }}"><i class="setting icon" data-content="Settings"></i></a>
       </div>
-
     </div>
     <div class="ui hidden divider"></div>
-
 </template>

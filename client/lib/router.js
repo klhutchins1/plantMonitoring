@@ -1,5 +1,6 @@
 //look into flow router as iron may become depricated??
 //iron router version.. moving to flow
+
 Router.route('/', function () {
   this.render('homeTemplate');
 }, {
@@ -8,13 +9,15 @@ Router.route('/', function () {
 
 
 
-Router.route('/gettingStarted', function () {
+Router.route('/gettingStarted/', function () {
   this.render('gettingStartedTemplate');
 }, {
   name: 'gettingStarted.show'
 });
 
-Router.route('/settings', function () {
+
+//settings
+Router.route('/settings/', function () {
   this.render('settingsTemplate');
 }, {
   name: 'settings.show'
@@ -32,31 +35,18 @@ Router.route('/settings/devices/add', function () {
   name: 'addDevices.show'
 });
 
-Router.route('/gardens', function () {
+
+//gardens routers NOTE:Order Matters, Iron-route will match first
+Router.route('/gardens/', function () {
   this.render('gardensTemplate');
 }, {
   name: 'gardens.show'
 });
 
-Router.route('/plants', function () {
-  this.render('plantsTemplate');
-}, {
-  name: 'plants.show'
-});
-
-Router.route('/temperature', function () {
-  this.render('temperatureTemplate');
-}, {
-  name: 'temperature.show'
-});
-
-
-//gardens routers NOTE:Order Matters, Iron-route will match first
-
 Router.route('/gardens/create', function () {
-  this.render('createGardensTemplate');
+  this.render('createGardenTemplate');
 }, {
-  name: 'createGardensTemplate.show'
+  name: 'createGardenTemplate.show'
 });
 
 Router.route('/gardens/:gardenName', function () {
@@ -70,9 +60,9 @@ Router.route('/gardens/:gardenName', function () {
 });
 
 Router.route('/gardens/:gardenName/edit', function () {
-  this.render('editGardenDetailTemplate');
+  this.render('editGardenDetailsTemplate');
 }, {
-  name: 'editGardenDetailTemplate.show',
+  name: 'editGardenDetailsTemplate.show',
   data: function(){
     var gardensLinkVar = this.params.gardenName;
     return  GardensList.findOne({gardenName: gardensLinkVar});
@@ -80,21 +70,35 @@ Router.route('/gardens/:gardenName/edit', function () {
 });
 
 Router.route('/gardens/:gardenName/detail', function () {
-  this.render('gardenDetailTemplate');
+  this.render('gardenDetailsTemplate');
 }, {
-  name: 'gardenDetailTemplate.show',
+  name: 'gardenDetailsTemplate.show',
   data: function(){
     var gardensLinkVar = this.params.gardenName;
     return  GardensList.findOne({gardenName: gardensLinkVar});
   }
 });
 
+Router.route('gardens/:gardenName/temperature', function () {
+  this.render('temperatureTemplate');
+}, {
+  name: 'temperatureTemplate.show'
+});
 
-
+Router.route('gardens/:gardenName/water', function () {
+  this.render('waterTemplate');
+}, {
+  name: 'waterTemplate.show'
+});
 
 
 
 //plants routers
+Router.route('/plants/', function () {
+  this.render('plantsTemplate');
+}, {
+  name: 'plants.show'
+});
 
 Router.route('/plants/create', function () {
   this.render('createPlantsTemplate');
@@ -125,29 +129,32 @@ Router.route('/plants/:plantName/edit', function () {
 
 
 
-
-//plant Type Routes
-Router.route('/plantType', function () {
-  this.render('plantTypeTemplate');
-}, {
-  name: 'plantType.show',
-  data: function(){
-    var plantsTypeLinkVar = this.params.plantTypeName;
-    return  PlantTypeList.findOne({plantTypeName: plantsTypeLinkVar});
-  }
-});
-
-
-
-Router.route('gardens/:gardenName/temperature', function () {
+Router.route('/temperature', function () {
   this.render('temperatureTemplate');
 }, {
-  name: 'temperatureTemplate.show'
+  name: 'temperature.show'
 });
 
 
-Router.route('gardens/:gardenName/water', function () {
-  this.render('waterTemplate');
+//taxonomy
+Router.route('/taxonomy', function () {
+  this.render('taxonomyTemplate');
 }, {
-  name: 'waterTemplate.show'
+  name: 'taxonomy.show',
+});
+
+Router.route('/taxonomy/create', function () {
+  this.render('createTaxonomyTemplate');
+}, {
+  name: 'createTaxonomyTemplate.show'
+});
+
+Router.route('/taxonomy/:taxonomyName', function () {
+  this.render('taxonomyDetailsTemplate');
+}, {
+  name: 'taxonomyDetailsTemplate.show',
+  data: function(){
+    var taxonomyLinkVar = this.params.taxonomyName;
+    return  TaxonomyList.findOne({taxonomyName: taxonomyLinkVar});
+  }
 });

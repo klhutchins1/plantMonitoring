@@ -16,6 +16,6 @@ Template.settingsTemplate.events( {
 
 
 
-Template.temperatureUnitSelectTemplate.onRendered(function () {
-	this.$('select').material_select();
-});
+//Template.temperatureUnitSelectTemplate.onRendered(function () {
+//	this.$('select').material_select();
+//});

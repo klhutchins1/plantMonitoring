@@ -11,7 +11,7 @@
     {{>gardenListTemplate}}
   </div>
   <p></p>
-  <a class="right circular red ui icon button" id="addGarden" data-content="Add a Garden" href="{{pathFor 'createGardensTemplate.show' }}"><i class="add icon"></i></a>
+  <a class="right circular red ui icon button" data-content="Add a Garden" id="addGarden"  href="{{pathFor 'createGardenTemplate.show' }}"><i class="add icon"></i></a>
 </template>
 <template name="gardenListTemplate">
   {{#each gardens}}
@@ -35,11 +35,11 @@
     </div>
   {{/each}}
 </template>
-<template name="createGardensTemplate">
+<template name="createGardenTemplate">
   <div class="main ui container">
     <div class="ui segment">
       <h2 class="ui dividing header">Create a new Garden</h2>
-        <form class="ui form" id="new-garden">
+        <form class="ui tiny form" id="new-garden">
           <div class="inline required field">
             <label>Garden Name:</label>
             <input id="gardenNameForm" type="text">
@@ -65,7 +65,7 @@
             </div>
           </div>
           <p>
-            <button class="ui button" id="saveGarden" type="submit" tabindex="0"><i class="save icon"></i> Save</button>
+            <button class="ui button" id="save-garden" type="submit" tabindex="0"><i class="save icon"></i> Save</button>
           </p>
       </form>
     </div>
@@ -76,22 +76,25 @@
   <div class="main ui container">
     <div class="ui segment">
       <h2 class="ui dividing header">{{gardenName}}</h2>
-      <a class="waves-effect waves-light btn brown" href="{{pathFor 'temperatureTemplate.show' }}  ">
+
+      <a class="ui button" href="{{pathFor 'temperatureTemplate.show' }}  ">
         <i class="material-icons left"></i>Tempurature</a>
-      <a class="waves-effect waves-light btn brown" href="{{pathFor 'waterTemplate.show' }}  ">
+
+      <a class="ui button" href="{{pathFor 'waterTemplate.show' }}  ">
         <i class="material-icons left"></i>Water</a>
 
       {{>temperatureTemplate}}
 
-      <a class="waves-effect waves-light btn brown" href="{{pathFor 'editGardenDetailTemplate.show' }}  ">
+      <a class="ui button" href="{{pathFor 'editGardenDetailsTemplate.show' }}  ">
         <i class="material-icons left"></i>Edit {{gardenName}}</a>
-      <a class="waves-effect waves-light btn brown" href="{{pathFor 'gardenDetailTemplate.show' }}  ">
+
+      <a class="ui button" href="{{pathFor 'gardenDetailsTemplate.show' }}  ">
         <i class="material-icons left"></i>Show Details</a>
     </div>
   </div>
 
 </template>
-<template name="gardenDetailTemplate">
+<template name="gardenDetailsTemplate">
   <div class="main ui container">
     <div class="ui segment">
       <h2 class="ui dividing header">{{gardenName}}</h2>
@@ -105,42 +108,43 @@
 </template>
 
 
-<template name="editGardenDetailTemplate">
+<template name="editGardenDetailsTemplate">
   <div class="main ui container">
     <div class="ui segment">
       <h2 class="ui dividing header">Edit {{gardenName}}</h2>
+      <form class="ui tiny form" id="edit-Garden">
 
-      <form id="saveGarden">
-        <div class="row">
-          <div class="input-field col s12">
-            <input value="{{gardenName}}" id="gardenNameForm" type="text" length="25" class="validate">
-            <label class="active" for="gardenNameForm">Garden Name:</label>
+        <div class="inline required field">
+          <label class="active">Garden Name:</label>
+          <input id="gardenNameForm" type="text" length="25" class="validate" value="{{gardenName}}">
+        </div>
+
+        <div class="inline field">
+          <label>Length: </label>
+          <input id="gardenLengthForm" type="text" maxlength="2" class="validate" value="{{gardenLength}}">
+        </div>
+
+        <div class="inline field">
+          <label>Width: </label>
+          <input id="gardenWidthForm" type="text" maxlength="2" class="validate" value="{{gardenWidth}}">
+        </div>
+
+        <div class="inline field">
+          <div class="ui checkbox">
+            <label>Is Monitored</label>
+            <input type="checkbox" class="toggle-checked" id="gardenMonitoredCheckbox" />
           </div>
         </div>
-        <div class="row">
-          <div class="input-field col s12">
-            <input id="gardenLengthForm" type="text" class="validate" value="{{gardenLength}}">
-            <label class="active" for="gardenLengthForm">Length: </label>
-          </div>
-        </div>
-        <div class="row">
-          <div class="input-field col s12">
-            <input id="gardenWidthForm" type="text" class="validate" value="{{gardenWidth}}">
-            <label class="active" for="gardenWidthForm">Width: </label>
+
+        <div class="inline field">
+          <div class="ui checkbox">
+            <label>Is Automated</label>
+            <input type="checkbox" class="toggle-checked" id="gardenAutomatedCheckbox" />
           </div>
         </div>
 
         <p>
-          <input type="checkbox" class="toggle-checked" id="gardenMonitoredCheckbox" />
-          <label for="gardenMonitoredCheckbox">Is Monitored</label>
-        </p>
-        <p>
-          <input type="checkbox" id="gardenAutomatedCheckbox" />
-          <label for="gardenAutomatedCheckbox">Is Automated</label>
-        </p>
-
-        <p>
-          <button class="ui button" id="saveGarden" type="submit" tabindex="0"><i class="save icon"></i> Save Garden</button>
+          <button class="ui button" id="save-garden" type="submit" tabindex="0"><i class="save icon"></i> Save Garden</button>
           <button class="ui button" id="deleteGarden" type="submit" tabindex="0"><i class="remove icon"></i> Delete Garden</button>
         </p>
 
@@ -148,5 +152,4 @@
       </form>
     </div>
   </div>
-
 </template>

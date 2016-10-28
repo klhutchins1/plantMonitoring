@@ -28,6 +28,7 @@ ejson
 spacebars
 check
 iron:router
+#kadira:flow-router
 es5-shim
 ecmascript
 semantic:ui

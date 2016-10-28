@@ -35,11 +35,11 @@ Template.editPlantDetailsTemplate.helpers( {
 
 
 Template.createPlantsTemplate.rendered = function() {
-    this.$('.collapsible').collapsible();
-		this.$('select').material_select();
+	this.$('.ui.accordion').accordion();
+	this.$('.ui.checkbox').checkbox();
 };
 
 Template.editPlantDetailsTemplate.rendered = function() {
-    this.$('.collapsible').collapsible();
-		this.$('select').material_select();
+	this.$('.ui.accordion').accordion();
+	this.$('.ui.checkbox').checkbox();
 };

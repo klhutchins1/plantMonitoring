@@ -1,27 +1,27 @@
-Template.createGardensTemplate.events( {
+Template.createGardenTemplate.events( {
 	"submit #new-garden": function (event) {
 		var gardenName = event.target.gardenNameForm.value;
     var length = event.target.gardenLengthForm.value;
     var width = event.target.gardenWidthForm.value;
-    var monitored = event.target.gardenMonitoredCheckbox.value;
-    var automated = event.target.gardenAutomatedCheckbox.value;
-		Meteor.call('addGarden', gardenName, length, width, monitored, automated);
+    var monitored = event.target.gardenMonitoredCheckbox.checked;
+    var automated = event.target.gardenAutomatedCheckbox.checked;
+		var isNew = true;
+		Meteor.call('saveGarden', isNew, gardenName, length, width, monitored, automated, null);
 		return false;
 	}
 } );
 
 
-Template.editGardenDetailTemplate.events( {
-	"click .toggle-checked": function () {
-		Meteor.call("toggleChecked", this._id, ! this.isChecked );
-	},
-	"submit #saveGarden": function (event) {
+Template.editGardenDetailsTemplate.events( {
+	"submit #save-garden": function (event) {
 		var gardenName = event.target.gardenNameForm.value;
 		var length = event.target.gardenLengthForm.value;
 		var width = event.target.gardenWidthForm.value;
-		var monitored = event.target.gardenMonitoredCheckbox.value;
-		var automated = event.target.gardenAutomatedCheckbox.value;
-		Meteor.call('saveGarden', gardenName, length, width, monitored, automated, this._id);
+		var monitored = event.target.gardenMonitoredCheckbox.checked;
+		var automated = event.target.gardenAutomatedCheckbox.checked;
+		var isNew = false;
+		Meteor.call('saveGarden', isNew, gardenName, length, width, monitored, automated,
+								this._id);
 		return false;
 	},
 
@@ -34,7 +34,7 @@ Template.editGardenDetailTemplate.events( {
       Meteor.call('removeGarden', garden);
       Router.go('gardens.show');
     }else{
-
+			Router.go('plants.show');
     }
   }
 } );
