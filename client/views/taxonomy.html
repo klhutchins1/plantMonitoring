@@ -1,0 +1,98 @@
+<template name="taxonomyTemplate">
+  <div class="main ui container">
+    <div class="ui segment">
+      {{>taxonomyShowTemplate}}
+    </div>
+  </div>
+</template>
+<template name="taxonomyShowTemplate">
+  <h2 class="ui dividing header">Taxonomy </h2>
+  <div class="ui five cards">
+    {{>taxonomyListTemplate}}
+  </div>
+  <p></p>
+  <a class="right circular red ui icon button" data-content="Add a Plant Taxonomy" id="addTaxonomy" href="{{pathFor 'createTaxonomyTemplate.show' }}"><i class="add icon"></i></a>
+</template>
+<template name="taxonomyListTemplate">
+  {{#each taxonomy}}
+    <div class="card">
+      <div class="content">
+        <i class="right floated green tree icon"></i>
+        <a class="header" href="{{pathFor 'taxonomyDetailsTemplate.show' }} ">{{taxonomyName}}</a>
+        <div class="meta">
+          <span class="tempurature">55&deg;F 21&deg;C</span>
+        </div>
+      </div>
+      <div class="extra content">
+        <a>
+          <i class="user icon"></i>
+          22
+        </a>
+      </div>
+    </div>
+  {{/each}}
+</template>
+
+<template name="createTaxonomyTemplate">
+  <div class="main ui container">
+    <div class="ui segment">
+      <h2 class="ui dividing header">Plant Taxonomy</h2>
+      <form class="ui form" id="new-taxonomy">
+        <div class="required inline field">
+          <label>Plant Common Name:</label>
+          <input id="taxonomyNameForm" type="text">
+        </div>
+        <div class="inline field">
+          <label>Binomial name:</label>
+          <input id="taxonomyBinomialNameForm" type="text">
+        </div>
+        <div class="inline field">
+          <label>Plant Kingdom:</label>
+          <input id="taxonomyKingdomForm" type="text">
+        </div>
+        <div class="inline field">
+          <label>Plant Order:</label>
+          <input id="taxonomyOrderForm" type="text">
+        </div>
+        <div class="inline field">
+          <label>Plant Family:</label>
+          <input id="taxonomyFamilyForm" type="text">
+        </div>
+        <div class="inline field">
+          <label>Plant Genus:</label>
+          <input id="taxonomyGenusForm" type="text">
+        </div>
+        <div class="inline field">
+          <label>Plant Species:</label>
+          <input id="taxonomySpeciesForm" type="text">
+        </div>
+        <div class="inline field">
+          <label>Plant Variety:</label>
+          <input id="taxonomyVarietyForm" type="text">
+        </div>
+
+        <div class="ui icon button">
+          <label>Plant Image:</label>
+          <input type="file" id="taxonomyImageForm" >
+        </div>
+
+        <p>
+          <button class="ui button" id="saveTaxonomy" type="submit" tabindex="0"><i class="save icon"></i> Save Taxonomy</button>
+          <button class="ui button" id="loadTaxonomy" type="submit" tabindex="0"><i class="upload icon"></i> Load Taxonomy</button>
+        </p>
+      </form>
+    </div>
+  </div>
+
+</template>
+
+
+<template name="editTaxonomyDetailsTemplate">
+
+
+</template>
+
+<template name="taxonomyDetailsTemplate">
+
+
+</template>
