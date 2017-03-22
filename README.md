@@ -96,6 +96,7 @@ cd $HOME
 git clone --depth 1 https://github.com/klhutchins1/plantMonitoring.git
 cd plantMonitoring
 sudo $HOME/meteor/meteor
+sudo $HOME/meteor/meteor npm install
 ```
 
 - reboot
