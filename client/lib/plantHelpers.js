@@ -1,5 +1,5 @@
 Meteor.subscribe('plants', function(){
-  //console.log( "plants data ready." );
+  console.log( "plants data ready." );
 });
 
 Template.createPlantsTemplate.helpers( {
@@ -9,8 +9,6 @@ Template.createPlantsTemplate.helpers( {
 } );
 
 Template.plantListTemplate.helpers( {
-
-
 	plants: function() {
 		return PlantsList.find();
 	},
@@ -21,14 +19,12 @@ Template.createPlantsTemplate.helpers( {
 	gardens: function() {
 		return GardensList.find();
 	},
-
 } );
 
 Template.editPlantDetailsTemplate.helpers( {
 	gardens: function() {
 		return GardensList.find();
 	},
-
 } );
 
 

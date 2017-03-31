@@ -3,7 +3,7 @@
     <div class="ui segment">
       <h2 class="ui dividing header">Settings</h2>
         <a href="{{pathFor 'devices.show' }}">Devices</a>
-        <form class="ui form" id="settingsForm">
+        <form class="ui tiny form" id="settingsForm">
           <div class="inline required field">
             {{>temperatureUnitSelectTemplate}}
           </div>
@@ -17,19 +17,34 @@
 </template>
 
 <template name="temperatureUnitSelectTemplate">
-  <div class="inline field">
+  <div class="field">
     <label>Tempurature Units:</label>
-    <select id="tempUnitSelect">
-      {{#if tempUnitIs "Fahrenheit"}}
-        <option value="Fahrenheit" selected="selected">Fahrenheit</option>
-        <option value="Celsius">Celsius</option>
-      {{else}}
-        {{#if tempUnitIs "Celsius"}}
-          <option value="Fahrenheit">Fahrenheit</option>
-          <option value="Celsius" selected="selected">Celsius</option>
+    <div class="ui selection dropdown">
+      <input type="hidden" name="tempUnitSelect" id="tempUnitSelect">
+      <i class="dropdown icon"></i>
+      <div class="default text">Tempurature Units</div>
+      <div class="menu">
+        {{#if tempUnitIs "Fahrenheit"}}
+          <div class="item" data-value="Fahrenheit" selected="selected">Fahrenheit</div>
+          <div class="item" data-value="Celsius">Celsius</div>
+        {{else}}
+          {{#if tempUnitIs "Celsius"}}
+          <div class="item" data-value="Fahrenheit" >Fahrenheit</div>
+          <div class="item" data-value="Celsius" selected="selected">Celsius</div>
+
+          {{/if}}
         {{/if}}
-      {{/if}}
-    </select>
-    {{tempUnitIs}}
+
+      </div>
+
+    </div>
   </div>
+{{tempUnitIs}}
+
+
+
+
+
+
+
 </template>

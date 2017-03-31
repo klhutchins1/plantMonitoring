@@ -1,6 +1,7 @@
 Meteor.subscribe('latestTemps', function(){
-  //console.log( "latestTemps data ready." );
+  console.log( "latestTemps data ready." );
 });
+
 
 Template.hardwareActivateTemplate.events( {
 	"click #buttonLedON": function () {

@@ -12,12 +12,12 @@ Meteor.methods( {
       console.log("gardenWidth is out of range at " + width);
 			return false;
     } else if (monitored != true && monitored != false) {
-      console.log("Gardenmonitored is out of range at " + monitored);
+      console.log("Garden monitored is out of range at " + monitored);
 			return false;
     } else if  (automated != true && automated != false) {
-      console.log("Gardenautomated is out of range at " + automated);
+      console.log("Garden automated is out of range at " + automated);
 			return false;
-    }else if (isNew) {
+    } else if (isNew) {
 			console.log("GardensList inserted");
 			//creates a new garden
 	    GardensList.insert( {

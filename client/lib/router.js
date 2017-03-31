@@ -30,9 +30,41 @@ Router.route('/settings/devices', function () {
 });
 
 Router.route('/settings/devices/add', function () {
-  this.render('addDeviceTemplate');
+  this.render('createDeviceTemplate');
 }, {
-  name: 'addDevices.show'
+  name: 'createDevices.show'
+});
+
+Router.route('/settings/devices/:deviceName', function () {
+  this.render('deviceDetailsTemplate');
+}, {
+  name: 'deviceDetailsTemplate.show',
+  data: function(){
+    var devicesLinkVar = this.params.deviceName;
+    return  DevicesList.findOne({deviceName: devicesLinkVar});
+  }
+});
+
+
+//Router.route('/settings/devices/:deviceName', function () {
+//  this.render('deviceInfoTemplate');
+//}, {
+//  name: 'deviceInfoTemplate.show',
+//  data: function(){
+//    var deviceLinkVar = this.params.deviceName;
+//    return  DevicesList.findOne({deviceName: deviceLinkVar});
+//  }
+//});
+
+
+Router.route('/settings/:deviceName/edit', function () {
+  this.render('editDeviceDetailsTemplate');
+}, {
+  name: 'editDeviceDetailsTemplate.show',
+  data: function(){
+    var devicesLinkVar = this.params.deviceName;
+    return  DevicesList.findOne({deviceName: devicesLinkVar});
+  }
 });
 
 

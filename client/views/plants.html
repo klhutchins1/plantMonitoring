@@ -5,6 +5,7 @@
     </div>
   </div>
 </template>
+
 <template name="plantShowTemplate">
   <h2 class="ui dividing header">Plants </h2>
   <div class="ui five cards">
@@ -13,6 +14,7 @@
   <p></p>
   <a class="right circular red ui icon button" data-content="Add a Plant" id="addPlant" href="{{pathFor 'createPlantsTemplate.show' }}"><i class="add icon"></i></a>
 </template>
+
 <template name="plantListTemplate">
   {{#each plants}}
     <div class="card">
@@ -35,6 +37,7 @@
     </div>
   {{/each}}
 </template>
+
 <template name="createPlantsTemplate">
   <div class="main ui container">
     <div class="ui segment">
